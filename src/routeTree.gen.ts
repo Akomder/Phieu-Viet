@@ -12,8 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as JourneysRouteImport } from './routes/journeys'
+import { Route as BookStationIdRouteImport } from './routes/book.$stationId'
+import { Route as ChallengeStationIdRouteImport } from './routes/challenge.$stationId'
 import { Route as StoriesIndexRouteImport } from './routes/stories.index'
 import { Route as StoriesStationIdRouteImport } from './routes/stories.$stationId'
+import { Route as TicketBookingIdRouteImport } from './routes/ticket.$bookingId'
+import { Route as UnlockStationIdRouteImport } from './routes/unlock.$stationId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,6 +34,16 @@ const JourneysRoute = JourneysRouteImport.update({
   path: '/journeys',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookStationIdRoute = BookStationIdRouteImport.update({
+  id: '/book/$stationId',
+  path: '/book/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChallengeStationIdRoute = ChallengeStationIdRouteImport.update({
+  id: '/challenge/$stationId',
+  path: '/challenge/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoriesIndexRoute = StoriesIndexRouteImport.update({
   id: '/stories/',
   path: '/stories/',
@@ -40,19 +54,37 @@ const StoriesStationIdRoute = StoriesStationIdRouteImport.update({
   path: '/stories/$stationId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TicketBookingIdRoute = TicketBookingIdRouteImport.update({
+  id: '/ticket/$bookingId',
+  path: '/ticket/$bookingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnlockStationIdRoute = UnlockStationIdRouteImport.update({
+  id: '/unlock/$stationId',
+  path: '/unlock/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/book/$stationId': typeof BookStationIdRoute
+  '/challenge/$stationId': typeof ChallengeStationIdRoute
   '/stories/$stationId': typeof StoriesStationIdRoute
+  '/ticket/$bookingId': typeof TicketBookingIdRoute
+  '/unlock/$stationId': typeof UnlockStationIdRoute
   '/stories/': typeof StoriesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/book/$stationId': typeof BookStationIdRoute
+  '/challenge/$stationId': typeof ChallengeStationIdRoute
   '/stories/$stationId': typeof StoriesStationIdRoute
+  '/ticket/$bookingId': typeof TicketBookingIdRoute
+  '/unlock/$stationId': typeof UnlockStationIdRoute
   '/stories': typeof StoriesIndexRoute
 }
 export interface FileRoutesById {
@@ -60,21 +92,46 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/book/$stationId': typeof BookStationIdRoute
+  '/challenge/$stationId': typeof ChallengeStationIdRoute
   '/stories/$stationId': typeof StoriesStationIdRoute
+  '/ticket/$bookingId': typeof TicketBookingIdRoute
+  '/unlock/$stationId': typeof UnlockStationIdRoute
   '/stories/': typeof StoriesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/discover' | '/journeys' | '/stories/$stationId' | '/stories/'
+    | '/'
+    | '/discover'
+    | '/journeys'
+    | '/book/$stationId'
+    | '/challenge/$stationId'
+    | '/stories/$stationId'
+    | '/ticket/$bookingId'
+    | '/unlock/$stationId'
+    | '/stories/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/discover' | '/journeys' | '/stories/$stationId' | '/stories'
+  to:
+    | '/'
+    | '/discover'
+    | '/journeys'
+    | '/book/$stationId'
+    | '/challenge/$stationId'
+    | '/stories/$stationId'
+    | '/ticket/$bookingId'
+    | '/unlock/$stationId'
+    | '/stories'
   id:
     | '__root__'
     | '/'
     | '/discover'
     | '/journeys'
+    | '/book/$stationId'
+    | '/challenge/$stationId'
     | '/stories/$stationId'
+    | '/ticket/$bookingId'
+    | '/unlock/$stationId'
     | '/stories/'
   fileRoutesById: FileRoutesById
 }
@@ -82,7 +139,11 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DiscoverRoute: typeof DiscoverRoute
   JourneysRoute: typeof JourneysRoute
+  BookStationIdRoute: typeof BookStationIdRoute
+  ChallengeStationIdRoute: typeof ChallengeStationIdRoute
   StoriesStationIdRoute: typeof StoriesStationIdRoute
+  TicketBookingIdRoute: typeof TicketBookingIdRoute
+  UnlockStationIdRoute: typeof UnlockStationIdRoute
   StoriesIndexRoute: typeof StoriesIndexRoute
 }
 
@@ -109,6 +170,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JourneysRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/book/$stationId': {
+      id: '/book/$stationId'
+      path: '/book/$stationId'
+      fullPath: '/book/$stationId'
+      preLoaderRoute: typeof BookStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/challenge/$stationId': {
+      id: '/challenge/$stationId'
+      path: '/challenge/$stationId'
+      fullPath: '/challenge/$stationId'
+      preLoaderRoute: typeof ChallengeStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stories/': {
       id: '/stories/'
       path: '/stories'
@@ -123,6 +198,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoriesStationIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ticket/$bookingId': {
+      id: '/ticket/$bookingId'
+      path: '/ticket/$bookingId'
+      fullPath: '/ticket/$bookingId'
+      preLoaderRoute: typeof TicketBookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unlock/$stationId': {
+      id: '/unlock/$stationId'
+      path: '/unlock/$stationId'
+      fullPath: '/unlock/$stationId'
+      preLoaderRoute: typeof UnlockStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -130,7 +219,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DiscoverRoute: DiscoverRoute,
   JourneysRoute: JourneysRoute,
+  BookStationIdRoute: BookStationIdRoute,
+  ChallengeStationIdRoute: ChallengeStationIdRoute,
   StoriesStationIdRoute: StoriesStationIdRoute,
+  TicketBookingIdRoute: TicketBookingIdRoute,
+  UnlockStationIdRoute: UnlockStationIdRoute,
   StoriesIndexRoute: StoriesIndexRoute,
 }
 export const routeTree = rootRouteImport
