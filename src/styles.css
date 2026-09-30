@@ -2,41 +2,176 @@
 @source "../src";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
+
 @theme inline {
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: 'Brush Script MT', cursive;
   --font-sans: "Be Vietnam Pro", sans-serif;
-  --color-background: var(--background); --color-foreground: var(--foreground);
-  --color-card: var(--card); --color-card-foreground: var(--foreground);
-  --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary); --color-secondary-foreground: var(--foreground);
-  --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent); --color-accent-foreground: var(--foreground);
-  --color-border: var(--border); --color-input: var(--border); --color-ring: var(--primary);
-  --color-gold: var(--gold); --color-deep: var(--deep); --color-warm: var(--warm);
-  --color-destructive: var(--destructive); --color-destructive-foreground: var(--primary-foreground);
-  --color-popover: var(--card); --color-popover-foreground: var(--foreground);
-  --radius-sm: 2px; --radius-md: 4px; --radius-lg: 6px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --color-gold: var(--gold);
+  --color-deep: var(--deep);
+  --color-warm: var(--warm);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--primary-foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--foreground);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
 }
+
 :root {
-  --background: oklch(0.969 0.014 80); --foreground: oklch(0.25 0.018 58);
-  --card: oklch(0.994 0.005 85); --primary: oklch(0.432 0.169 23); --primary-foreground: oklch(0.99 0.005 80);
-  --secondary: oklch(0.912 0.03 76); --muted: oklch(0.945 0.02 77); --muted-foreground: oklch(0.53 0.026 65);
-  --accent: oklch(0.92 0.03 75); --border: oklch(0.856 0.035 78); --gold: oklch(0.677 0.105 66);
-  --deep: oklch(0.333 0.125 22); --warm: oklch(0.985 0.008 83); --destructive: oklch(0.52 0.19 28);
-  --radius: 4px;
+  --heritage-red: #9A161F;
+  --imperial-gold: #C68C46;
+  --background: oklch(0.965 0.018 78);
+  --foreground: oklch(0.25 0.055 24);
+  --card: oklch(0.99 0.018 87 / 0.66);
+  --primary: var(--heritage-red);
+  --primary-foreground: oklch(0.98 0.018 86);
+  --secondary: oklch(0.86 0.075 76 / 0.62);
+  --muted: oklch(0.92 0.035 45 / 0.62);
+  --muted-foreground: oklch(0.46 0.045 28);
+  --accent: oklch(0.86 0.09 76 / 0.72);
+  --border: oklch(0.98 0.02 87 / 0.7);
+  --gold: var(--imperial-gold);
+  --deep: oklch(0.3 0.12 24);
+  --warm: oklch(0.975 0.025 82 / 0.7);
+  --destructive: oklch(0.52 0.19 28);
+  --radius: 14px;
 }
+
 @layer base {
-  * { border-color: var(--border); }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--background); color: var(--foreground); font-family: "Be Vietnam Pro", sans-serif; }
-  button, input, textarea, select { font: inherit; }
-  ::selection { background: var(--gold); color: var(--foreground); }
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Be Vietnam Pro", sans-serif;
+    background-image: linear-gradient(135deg, oklch(0.99 0.025 86 / .8), transparent 38%), linear-gradient(315deg, oklch(0.88 0.08 28 / .3), transparent 45%);
+    background-attachment: fixed;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--foreground);
+  }
 }
-@utility font-display { font-family: "Playfair Display", Georgia, serif; }
-@utility section-wrap { width: min(100% - 40px, 1200px); margin-inline: auto; }
-@utility eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--primary); }
-@utility paper-grain { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E"); }
-@utility hero-shade { background: linear-gradient(90deg, oklch(0.16 0.025 50 / .87), oklch(0.2 0.04 45 / .45) 48%, transparent 95%); }
-@utility dark-shade { background: linear-gradient(0deg, oklch(0.15 0.02 40 / .75), transparent 65%); }
-@utility stamp { border: 2px dashed var(--gold); box-shadow: inset 0 0 0 4px var(--background); }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+@utility font-display {
+  font-family: 'Brush Script MT', cursive;
+}
+
+@utility section-wrap {
+  width: min(100% - 40px, 1200px);
+  margin-inline: auto;
+}
+
+@utility eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+@utility paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+
+@utility hero-shade {
+  background: linear-gradient(90deg, oklch(0.16 0.025 50 / .87), oklch(0.2 0.04 45 / .45) 48%, transparent 95%);
+}
+
+@utility dark-shade {
+  background: linear-gradient(0deg, oklch(0.15 0.02 40 / .75), transparent 65%);
+}
+
+@utility stamp {
+  border: 2px dashed var(--gold);
+  box-shadow: inset 0 0 0 4px var(--background);
+}
+
+.bg-card {
+  background-color: var(--card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 45px oklch(0.28 0.08 24 / .1), inset 0 1px 0 oklch(1 0 0 / .65);
+}
+
+.border-border {
+  border-color: oklch(1 0 0 / .62);
+}
+
+.border-gold {
+  border-color: color-mix(in srgb, var(--imperial-gold) 72%, transparent);
+}
+
+.bg-warm {
+  background-color: oklch(0.975 0.025 82 / .62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.site-glass {
+  background: oklch(0.99 0.018 87 / .7);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 10px 32px oklch(0.28 0.08 24 / .1), inset 0 1px 0 oklch(1 0 0 / .72);
+}
+
+.bg-secondary {
+  background-color: oklch(0.86 0.075 76 / .54);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-card {
+  border: 1px solid oklch(1 0 0 / .62);
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 45px oklch(0.28 0.08 24 / .1), inset 0 1px 0 oklch(1 0 0 / .72);
+}
+
+.glass-card:hover {
+  box-shadow: 0 24px 55px oklch(0.28 0.08 24 / .17), inset 0 1px 0 oklch(1 0 0 / .8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

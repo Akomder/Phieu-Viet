@@ -2,19 +2,52 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRight, BookOpen, Compass, Gift, MapPin, QrCode, Sparkles, Stamp, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { StationCard } from '@/components/site/StationCard';
+import { useLanguage } from '@/components/site/LanguageContext';
 import { stations } from '@/lib/journey';
 import { pageHead } from '@/lib/meta';
 import hero from '@/assets/hero-lanterns.jpg';
 import lantern from '@/assets/craft-lantern.jpg';
 export const Route = createFileRoute('/')({ head: () => pageHead('Cultural journeys', 'Rediscover memories and reconnect with authentic Vietnamese heritage through stories, craft villages, and cultural experiences.'), component: Home });
-function Home() { return <main>
+function Home() {
+  const { language } = useLanguage();
+  const isVietnamese = language === 'vi';
+  const copy = isVietnamese ? {
+    eyebrow: 'Hành trình qua di sản Việt Nam',
+    intro: 'Tìm lại ký ức, chạm vào nguyên bản.',
+    begin: 'Bắt đầu hành trình',
+    explore: 'Khám phá câu chuyện',
+    behind: 'Câu chuyện phía sau hành trình',
+    behindTitle: 'Có những ký ức cần được sống lại.',
+    behindText: 'Một chiếc đèn lồng sáng trong đêm. Những đồng tiền đầu tiên trong chú heo đất. Một hình hài nhỏ được nặn bằng tay. Phiêu Việt đưa bạn đến những xưởng nghề, câu chuyện và con người đang gìn giữ ký ức tuổi thơ.',
+    ourStory: 'Câu chuyện của chúng tôi',
+    featured: 'Trải nghiệm được tuyển chọn',
+    discoverAll: 'Khám phá tất cả',
+    journeyTitle: 'Ánh sáng. Đất. Bột gạo.',
+    journeyText: 'Theo những mạch ký ức tuổi thơ qua ba truyền thống sống động.',
+    seeJourney: 'Xem hành trình',
+  } : {
+    eyebrow: 'A journey through Vietnamese heritage',
+    intro: 'Rediscover memories in the places where they were made.',
+    begin: 'Begin the Journey',
+    explore: 'Explore the Stories',
+    behind: 'The story behind the journey',
+    behindTitle: 'Some memories are meant to be lived again.',
+    behindText: 'A lantern glowing in the night. The first coins in a clay piggy bank. A tiny figure shaped by hand. Phiêu Việt takes you beyond the screen and into the workshops, stories, and people keeping childhood traditions alive.',
+    ourStory: 'Our story',
+    featured: 'Curated for the curious',
+    discoverAll: 'Discover all',
+    journeyTitle: 'Light. Earth. Flour.',
+    journeyText: 'Follow the threads of childhood through three living traditions.',
+    seeJourney: 'See the journey',
+  };
+  return <main>
   <section className="relative flex min-h-[610px] items-center overflow-hidden bg-deep text-primary-foreground lg:min-h-[690px]">
     <img src={hero} alt="Lanterns and an artisan at a Vietnamese craft village" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover object-center" />
     <div className="hero-shade absolute inset-0" /><div className="section-wrap relative z-10 py-24">
-      <div className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[.25em] text-gold"><span className="h-px w-10 bg-gold"/> A journey through Vietnamese heritage</div>
+      <div className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[.25em] text-gold"><span className="h-px w-10 bg-gold"/> {copy.eyebrow}</div>
       <h1 className="max-w-[820px] font-display text-5xl leading-[1.16] font-medium sm:text-6xl lg:text-[84px]">Vệt nắng<br/>năm tháng</h1>
-      <p className="mt-4 font-display text-2xl italic sm:text-4xl">Mảnh ghép tuổi thơ</p><p className="mt-7 max-w-lg text-base leading-8 opacity-90">Tìm lại ký ức, chạm vào nguyên bản. Rediscover memories in the places where they were made.</p>
-      <div className="mt-9 flex flex-wrap gap-3"><Button asChild variant="hero" size="hero"><Link to="/discover">Begin the Journey <ArrowRight/></Link></Button><Button asChild variant="heroOutline" size="hero"><Link to="/stories">Explore the Stories</Link></Button></div>
+      <p className="mt-4 font-display text-2xl italic sm:text-4xl">{isVietnamese ? 'Mảnh ghép tuổi thơ' : 'Fragments of childhood'}</p><p className="mt-7 max-w-lg text-base leading-8 opacity-90">{copy.intro}</p>
+      <div className="mt-9 flex flex-wrap gap-3"><Button asChild variant="hero" size="hero"><Link to="/discover">{copy.begin} <ArrowRight/></Link></Button><Button asChild variant="heroOutline" size="hero"><Link to="/stories">{copy.explore}</Link></Button></div>
     </div><div className="absolute bottom-6 right-6 hidden text-xs font-semibold uppercase tracking-[.22em] text-primary-foreground/80 sm:block">01 / 03 &nbsp; · &nbsp; Light · Earth · Flour</div>
   </section>
   <section className="paper-grain bg-background py-20 sm:py-28"><div className="section-wrap grid items-center gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><div><p className="eyebrow">The story behind the journey</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">Some memories are meant to be lived again.</h2></div><div className="border-l-2 border-gold pl-7"><p className="text-base leading-8 text-muted-foreground">A lantern glowing in the night. The first coins in a clay piggy bank. A tiny figure shaped by hand. Phiêu Việt takes you beyond the screen and into the workshops, stories, and people keeping childhood traditions alive.</p><Link to="/about" className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">Our story <ArrowRight size={16}/></Link></div></div></section>
