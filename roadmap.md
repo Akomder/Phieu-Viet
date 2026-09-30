@@ -1,4 +1,4 @@
-- [ ] Build branded responsive pages and navigation for the Neo-Heritage website.
-- [ ] Connect discovery, story, booking, simulated QR/challenge, quiz, passport, rewards, and trip planning interactions.
-- [ ] Add profile, reviews, partner and admin prototype views.
-- [ ] Verify main journey and mobile layout in browser.
+- [x] Build branded responsive pages and navigation for the Neo-Heritage website.
+- [x] Connect discovery, story, booking, simulated QR/challenge, quiz, passport, rewards, and trip planning interactions.
+- [x] Add profile, reviews, partner and admin prototype views.
+- [x] Verify main journey and mobile layout in browser.
