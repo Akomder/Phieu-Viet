@@ -1,0 +1,7 @@
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { Star } from 'lucide-react';
+import { useJourney } from '@/components/site/JourneyContext';
+import { getStation } from '@/lib/journey';
+import { pageHead } from '@/lib/meta';
+export const Route=createFileRoute('/reviews')({head:()=>pageHead('Your reviews','Read the memories and ratings you shared after each experience.'),component:Reviews});
+function Reviews(){const {journey}=useJourney();return <main className="section-wrap py-16 sm:py-24"><p className="eyebrow">In your own words</p><h1 className="mt-4 font-display text-5xl">My Reviews</h1>{journey.reviews.length?<div className="mt-10 grid gap-5 md:grid-cols-2">{journey.reviews.map(r=><div key={r.stationId} className="border border-border bg-card p-7"><h2 className="font-display text-2xl">{getStation(r.stationId)?.name}</h2><div className="mt-3 flex gap-1 text-gold">{Array.from({length:r.rating}).map((_,i)=><Star key={i} size={17} fill="currentColor"/>)}</div><p className="mt-4 text-sm leading-7 text-muted-foreground">{r.text||'A memory worth keeping.'}</p></div>)}</div>:<div className="mt-10 border border-border bg-card p-10"><p className="text-muted-foreground">You haven’t shared a review yet. Complete a station to tell its story in your own words.</p><Link to="/discover" className="mt-5 inline-block font-semibold text-primary">Discover a station</Link></div>}</main>}
