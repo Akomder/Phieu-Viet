@@ -10,33 +10,258 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as DesignerRouteImport } from './routes/designer'
+import { Route as DiscoverRouteImport } from './routes/discover'
+import { Route as JourneysRouteImport } from './routes/journeys'
+import { Route as PartnerRouteImport } from './routes/partner'
+import { Route as PassportRouteImport } from './routes/passport'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as RewardsRouteImport } from './routes/rewards'
+import { Route as BookStationIdRouteImport } from './routes/book.$stationId'
+import { Route as ChallengeStationIdRouteImport } from './routes/challenge.$stationId'
+import { Route as QuizStationIdRouteImport } from './routes/quiz.$stationId'
+import { Route as StoriesIndexRouteImport } from './routes/stories.index'
+import { Route as StoriesStationIdRouteImport } from './routes/stories.$stationId'
+import { Route as TicketBookingIdRouteImport } from './routes/ticket.$bookingId'
+import { Route as UnlockStationIdRouteImport } from './routes/unlock.$stationId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignerRoute = DesignerRouteImport.update({
+  id: '/designer',
+  path: '/designer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiscoverRoute = DiscoverRouteImport.update({
+  id: '/discover',
+  path: '/discover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JourneysRoute = JourneysRouteImport.update({
+  id: '/journeys',
+  path: '/journeys',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnerRoute = PartnerRouteImport.update({
+  id: '/partner',
+  path: '/partner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PassportRoute = PassportRouteImport.update({
+  id: '/passport',
+  path: '/passport',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RewardsRoute = RewardsRouteImport.update({
+  id: '/rewards',
+  path: '/rewards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookStationIdRoute = BookStationIdRouteImport.update({
+  id: '/book/$stationId',
+  path: '/book/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChallengeStationIdRoute = ChallengeStationIdRouteImport.update({
+  id: '/challenge/$stationId',
+  path: '/challenge/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizStationIdRoute = QuizStationIdRouteImport.update({
+  id: '/quiz/$stationId',
+  path: '/quiz/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoriesIndexRoute = StoriesIndexRouteImport.update({
+  id: '/stories/',
+  path: '/stories/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoriesStationIdRoute = StoriesStationIdRouteImport.update({
+  id: '/stories/$stationId',
+  path: '/stories/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TicketBookingIdRoute = TicketBookingIdRouteImport.update({
+  id: '/ticket/$bookingId',
+  path: '/ticket/$bookingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnlockStationIdRoute = UnlockStationIdRouteImport.update({
+  id: '/unlock/$stationId',
+  path: '/unlock/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/designer': typeof DesignerRoute
+  '/discover': typeof DiscoverRoute
+  '/journeys': typeof JourneysRoute
+  '/partner': typeof PartnerRoute
+  '/passport': typeof PassportRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
+  '/rewards': typeof RewardsRoute
+  '/book/$stationId': typeof BookStationIdRoute
+  '/challenge/$stationId': typeof ChallengeStationIdRoute
+  '/quiz/$stationId': typeof QuizStationIdRoute
+  '/stories/$stationId': typeof StoriesStationIdRoute
+  '/ticket/$bookingId': typeof TicketBookingIdRoute
+  '/unlock/$stationId': typeof UnlockStationIdRoute
+  '/stories/': typeof StoriesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/designer': typeof DesignerRoute
+  '/discover': typeof DiscoverRoute
+  '/journeys': typeof JourneysRoute
+  '/partner': typeof PartnerRoute
+  '/passport': typeof PassportRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
+  '/rewards': typeof RewardsRoute
+  '/book/$stationId': typeof BookStationIdRoute
+  '/challenge/$stationId': typeof ChallengeStationIdRoute
+  '/quiz/$stationId': typeof QuizStationIdRoute
+  '/stories/$stationId': typeof StoriesStationIdRoute
+  '/ticket/$bookingId': typeof TicketBookingIdRoute
+  '/unlock/$stationId': typeof UnlockStationIdRoute
+  '/stories': typeof StoriesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/designer': typeof DesignerRoute
+  '/discover': typeof DiscoverRoute
+  '/journeys': typeof JourneysRoute
+  '/partner': typeof PartnerRoute
+  '/passport': typeof PassportRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
+  '/rewards': typeof RewardsRoute
+  '/book/$stationId': typeof BookStationIdRoute
+  '/challenge/$stationId': typeof ChallengeStationIdRoute
+  '/quiz/$stationId': typeof QuizStationIdRoute
+  '/stories/$stationId': typeof StoriesStationIdRoute
+  '/ticket/$bookingId': typeof TicketBookingIdRoute
+  '/unlock/$stationId': typeof UnlockStationIdRoute
+  '/stories/': typeof StoriesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/designer'
+    | '/discover'
+    | '/journeys'
+    | '/partner'
+    | '/passport'
+    | '/profile'
+    | '/reviews'
+    | '/rewards'
+    | '/book/$stationId'
+    | '/challenge/$stationId'
+    | '/quiz/$stationId'
+    | '/stories/$stationId'
+    | '/ticket/$bookingId'
+    | '/unlock/$stationId'
+    | '/stories/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/designer'
+    | '/discover'
+    | '/journeys'
+    | '/partner'
+    | '/passport'
+    | '/profile'
+    | '/reviews'
+    | '/rewards'
+    | '/book/$stationId'
+    | '/challenge/$stationId'
+    | '/quiz/$stationId'
+    | '/stories/$stationId'
+    | '/ticket/$bookingId'
+    | '/unlock/$stationId'
+    | '/stories'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/designer'
+    | '/discover'
+    | '/journeys'
+    | '/partner'
+    | '/passport'
+    | '/profile'
+    | '/reviews'
+    | '/rewards'
+    | '/book/$stationId'
+    | '/challenge/$stationId'
+    | '/quiz/$stationId'
+    | '/stories/$stationId'
+    | '/ticket/$bookingId'
+    | '/unlock/$stationId'
+    | '/stories/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
+  DesignerRoute: typeof DesignerRoute
+  DiscoverRoute: typeof DiscoverRoute
+  JourneysRoute: typeof JourneysRoute
+  PartnerRoute: typeof PartnerRoute
+  PassportRoute: typeof PassportRoute
+  ProfileRoute: typeof ProfileRoute
+  ReviewsRoute: typeof ReviewsRoute
+  RewardsRoute: typeof RewardsRoute
+  BookStationIdRoute: typeof BookStationIdRoute
+  ChallengeStationIdRoute: typeof ChallengeStationIdRoute
+  QuizStationIdRoute: typeof QuizStationIdRoute
+  StoriesStationIdRoute: typeof StoriesStationIdRoute
+  TicketBookingIdRoute: typeof TicketBookingIdRoute
+  UnlockStationIdRoute: typeof UnlockStationIdRoute
+  StoriesIndexRoute: typeof StoriesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +273,147 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/designer': {
+      id: '/designer'
+      path: '/designer'
+      fullPath: '/designer'
+      preLoaderRoute: typeof DesignerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discover': {
+      id: '/discover'
+      path: '/discover'
+      fullPath: '/discover'
+      preLoaderRoute: typeof DiscoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journeys': {
+      id: '/journeys'
+      path: '/journeys'
+      fullPath: '/journeys'
+      preLoaderRoute: typeof JourneysRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partner': {
+      id: '/partner'
+      path: '/partner'
+      fullPath: '/partner'
+      preLoaderRoute: typeof PartnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/passport': {
+      id: '/passport'
+      path: '/passport'
+      fullPath: '/passport'
+      preLoaderRoute: typeof PassportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rewards': {
+      id: '/rewards'
+      path: '/rewards'
+      fullPath: '/rewards'
+      preLoaderRoute: typeof RewardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book/$stationId': {
+      id: '/book/$stationId'
+      path: '/book/$stationId'
+      fullPath: '/book/$stationId'
+      preLoaderRoute: typeof BookStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/challenge/$stationId': {
+      id: '/challenge/$stationId'
+      path: '/challenge/$stationId'
+      fullPath: '/challenge/$stationId'
+      preLoaderRoute: typeof ChallengeStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz/$stationId': {
+      id: '/quiz/$stationId'
+      path: '/quiz/$stationId'
+      fullPath: '/quiz/$stationId'
+      preLoaderRoute: typeof QuizStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stories/': {
+      id: '/stories/'
+      path: '/stories'
+      fullPath: '/stories/'
+      preLoaderRoute: typeof StoriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stories/$stationId': {
+      id: '/stories/$stationId'
+      path: '/stories/$stationId'
+      fullPath: '/stories/$stationId'
+      preLoaderRoute: typeof StoriesStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ticket/$bookingId': {
+      id: '/ticket/$bookingId'
+      path: '/ticket/$bookingId'
+      fullPath: '/ticket/$bookingId'
+      preLoaderRoute: typeof TicketBookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unlock/$stationId': {
+      id: '/unlock/$stationId'
+      path: '/unlock/$stationId'
+      fullPath: '/unlock/$stationId'
+      preLoaderRoute: typeof UnlockStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
+  DesignerRoute: DesignerRoute,
+  DiscoverRoute: DiscoverRoute,
+  JourneysRoute: JourneysRoute,
+  PartnerRoute: PartnerRoute,
+  PassportRoute: PassportRoute,
+  ProfileRoute: ProfileRoute,
+  ReviewsRoute: ReviewsRoute,
+  RewardsRoute: RewardsRoute,
+  BookStationIdRoute: BookStationIdRoute,
+  ChallengeStationIdRoute: ChallengeStationIdRoute,
+  QuizStationIdRoute: QuizStationIdRoute,
+  StoriesStationIdRoute: StoriesStationIdRoute,
+  TicketBookingIdRoute: TicketBookingIdRoute,
+  UnlockStationIdRoute: UnlockStationIdRoute,
+  StoriesIndexRoute: StoriesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
