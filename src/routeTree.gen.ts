@@ -10,10 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DesignerRouteImport } from './routes/designer'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as JourneysRouteImport } from './routes/journeys'
+import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PassportRouteImport } from './routes/passport'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as RewardsRouteImport } from './routes/rewards'
 import { Route as BookStationIdRouteImport } from './routes/book.$stationId'
 import { Route as ChallengeStationIdRouteImport } from './routes/challenge.$stationId'
@@ -26,6 +31,16 @@ import { Route as UnlockStationIdRouteImport } from './routes/unlock.$stationId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DesignerRoute = DesignerRouteImport.update({
@@ -43,9 +58,24 @@ const JourneysRoute = JourneysRouteImport.update({
   path: '/journeys',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartnerRoute = PartnerRouteImport.update({
+  id: '/partner',
+  path: '/partner',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PassportRoute = PassportRouteImport.update({
   id: '/passport',
   path: '/passport',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RewardsRoute = RewardsRouteImport.update({
@@ -91,10 +121,15 @@ const UnlockStationIdRoute = UnlockStationIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/designer': typeof DesignerRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/partner': typeof PartnerRoute
   '/passport': typeof PassportRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
   '/rewards': typeof RewardsRoute
   '/book/$stationId': typeof BookStationIdRoute
   '/challenge/$stationId': typeof ChallengeStationIdRoute
@@ -106,10 +141,15 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/designer': typeof DesignerRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/partner': typeof PartnerRoute
   '/passport': typeof PassportRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
   '/rewards': typeof RewardsRoute
   '/book/$stationId': typeof BookStationIdRoute
   '/challenge/$stationId': typeof ChallengeStationIdRoute
@@ -122,10 +162,15 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/designer': typeof DesignerRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/partner': typeof PartnerRoute
   '/passport': typeof PassportRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
   '/rewards': typeof RewardsRoute
   '/book/$stationId': typeof BookStationIdRoute
   '/challenge/$stationId': typeof ChallengeStationIdRoute
@@ -139,10 +184,15 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/admin'
     | '/designer'
     | '/discover'
     | '/journeys'
+    | '/partner'
     | '/passport'
+    | '/profile'
+    | '/reviews'
     | '/rewards'
     | '/book/$stationId'
     | '/challenge/$stationId'
@@ -154,10 +204,15 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/admin'
     | '/designer'
     | '/discover'
     | '/journeys'
+    | '/partner'
     | '/passport'
+    | '/profile'
+    | '/reviews'
     | '/rewards'
     | '/book/$stationId'
     | '/challenge/$stationId'
@@ -169,10 +224,15 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/admin'
     | '/designer'
     | '/discover'
     | '/journeys'
+    | '/partner'
     | '/passport'
+    | '/profile'
+    | '/reviews'
     | '/rewards'
     | '/book/$stationId'
     | '/challenge/$stationId'
@@ -185,10 +245,15 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
   DesignerRoute: typeof DesignerRoute
   DiscoverRoute: typeof DiscoverRoute
   JourneysRoute: typeof JourneysRoute
+  PartnerRoute: typeof PartnerRoute
   PassportRoute: typeof PassportRoute
+  ProfileRoute: typeof ProfileRoute
+  ReviewsRoute: typeof ReviewsRoute
   RewardsRoute: typeof RewardsRoute
   BookStationIdRoute: typeof BookStationIdRoute
   ChallengeStationIdRoute: typeof ChallengeStationIdRoute
@@ -206,6 +271,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/designer': {
@@ -229,11 +308,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JourneysRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partner': {
+      id: '/partner'
+      path: '/partner'
+      fullPath: '/partner'
+      preLoaderRoute: typeof PartnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/passport': {
       id: '/passport'
       path: '/passport'
       fullPath: '/passport'
       preLoaderRoute: typeof PassportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rewards': {
@@ -297,10 +397,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
   DesignerRoute: DesignerRoute,
   DiscoverRoute: DiscoverRoute,
   JourneysRoute: JourneysRoute,
+  PartnerRoute: PartnerRoute,
   PassportRoute: PassportRoute,
+  ProfileRoute: ProfileRoute,
+  ReviewsRoute: ReviewsRoute,
   RewardsRoute: RewardsRoute,
   BookStationIdRoute: BookStationIdRoute,
   ChallengeStationIdRoute: ChallengeStationIdRoute,
