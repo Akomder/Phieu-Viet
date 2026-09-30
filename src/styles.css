@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: 'Brush Script MT', cursive;
+  --font-display: "Be Vietnam Pro", sans-serif;
   --font-sans: "Be Vietnam Pro", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -28,34 +28,38 @@
   --color-destructive-foreground: var(--primary-foreground);
   --color-popover: var(--card);
   --color-popover-foreground: var(--foreground);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
+  --radius-sm: 18px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-xl: 28px;
 }
 
 :root {
-  --heritage-red: #9A161F;
-  --imperial-gold: #C68C46;
-  --background: oklch(0.965 0.018 78);
-  --foreground: oklch(0.25 0.055 24);
-  --card: oklch(0.99 0.018 87 / 0.66);
-  --primary: var(--heritage-red);
-  --primary-foreground: oklch(0.98 0.018 86);
-  --secondary: oklch(0.86 0.075 76 / 0.62);
-  --muted: oklch(0.92 0.035 45 / 0.62);
-  --muted-foreground: oklch(0.46 0.045 28);
-  --accent: oklch(0.86 0.09 76 / 0.72);
-  --border: oklch(0.98 0.02 87 / 0.7);
-  --gold: var(--imperial-gold);
-  --deep: oklch(0.3 0.12 24);
-  --warm: oklch(0.975 0.025 82 / 0.7);
-  --destructive: oklch(0.52 0.19 28);
-  --radius: 14px;
+  --background: #e0e0e0;
+  --foreground: #343434;
+  --card: #e0e0e0;
+  --primary: #9A161F;
+  --primary-foreground: #fff8ee;
+  --secondary: #e0e0e0;
+  --muted: #e0e0e0;
+  --muted-foreground: #626262;
+  --accent: #ead7bd;
+  --border: transparent;
+  --gold: #C68C46;
+  --deep: #6e1017;
+  --warm: #e0e0e0;
+  --destructive: #7f1119;
+  --neu-light: #ffffff;
+  --neu-shadow: #bebebe;
+  --neu-raised: 10px 10px 20px var(--neu-shadow), -10px -10px 20px var(--neu-light);
+  --neu-raised-sm: 6px 6px 12px var(--neu-shadow), -6px -6px 12px var(--neu-light);
+  --neu-inset: inset 6px 6px 12px var(--neu-shadow), inset -6px -6px 12px var(--neu-light);
+  --radius: 24px;
 }
 
 @layer base {
   * {
-    border-color: var(--border);
+    border-color: transparent;
   }
 
   html {
@@ -68,8 +72,6 @@
     background: var(--background);
     color: var(--foreground);
     font-family: "Be Vietnam Pro", sans-serif;
-    background-image: linear-gradient(135deg, oklch(0.99 0.025 86 / .8), transparent 38%), linear-gradient(315deg, oklch(0.88 0.08 28 / .3), transparent 45%);
-    background-attachment: fixed;
   }
 
   button,
@@ -80,13 +82,13 @@
   }
 
   ::selection {
-    background: var(--gold);
+    background: var(--primary);
     color: var(--foreground);
   }
 }
 
 @utility font-display {
-  font-family: 'Brush Script MT', cursive;
+  font-family: "Be Vietnam Pro", sans-serif;
 }
 
 @utility section-wrap {
@@ -103,7 +105,7 @@
 }
 
 @utility paper-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  background-image: none;
 }
 
 @utility hero-shade {
@@ -115,54 +117,137 @@
 }
 
 @utility stamp {
-  border: 2px dashed var(--gold);
-  box-shadow: inset 0 0 0 4px var(--background);
+  border: 0;
+  box-shadow: var(--neu-inset);
 }
 
 .bg-card {
   background-color: var(--card);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 18px 45px oklch(0.28 0.08 24 / .1), inset 0 1px 0 oklch(1 0 0 / .65);
+  border: 0;
+  box-shadow: var(--neu-raised);
 }
 
-.border-border {
-  border-color: oklch(1 0 0 / .62);
+.border-border,
+.border-gold,
+.border-primary {
+  border-color: transparent;
 }
 
-.border-gold {
-  border-color: color-mix(in srgb, var(--imperial-gold) 72%, transparent);
+.bg-primary {
+  box-shadow: var(--neu-raised-sm);
 }
 
 .bg-warm {
-  background-color: oklch(0.975 0.025 82 / .62);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: var(--background);
 }
 
 .site-glass {
-  background: oklch(0.99 0.018 87 / .7);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  box-shadow: 0 10px 32px oklch(0.28 0.08 24 / .1), inset 0 1px 0 oklch(1 0 0 / .72);
+  background: var(--background);
+  box-shadow: 0 8px 16px var(--neu-shadow), 0 -4px 12px var(--neu-light);
 }
 
 .bg-secondary {
-  background-color: oklch(0.86 0.075 76 / .54);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: var(--background);
+  box-shadow: var(--neu-inset);
 }
 
 .glass-card {
-  border: 1px solid oklch(1 0 0 / .62);
+  border: 0;
   background: var(--card);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 18px 45px oklch(0.28 0.08 24 / .1), inset 0 1px 0 oklch(1 0 0 / .72);
+  box-shadow: var(--neu-raised);
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .glass-card:hover {
-  box-shadow: 0 24px 55px oklch(0.28 0.08 24 / .17), inset 0 1px 0 oklch(1 0 0 / .8);
+  transform: translateY(-4px);
+  box-shadow: 12px 12px 24px var(--neu-shadow), -12px -12px 24px var(--neu-light);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 600ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+main {
+  animation: page-enter 600ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.motion-stagger>* {
+  opacity: 0;
+  animation: soft-reveal 650ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.motion-stagger>*:nth-child(1) {
+  animation-delay: 80ms;
+}
+
+.motion-stagger>*:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.motion-stagger>*:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.motion-stagger>*:nth-child(4) {
+  animation-delay: 320ms;
+}
+
+.motion-stagger>*:nth-child(5) {
+  animation-delay: 400ms;
+}
+
+.neu-press {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.neu-press:hover {
+  transform: translateY(-2px);
+}
+
+.neu-press:active {
+  transform: translateY(1px) scale(.985);
+  box-shadow: var(--neu-inset) !important;
+}
+
+.shadow,
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl {
+  box-shadow: var(--neu-raised-sm);
+}
+
+input,
+textarea,
+select {
+  background: var(--background);
+  border: 0;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--neu-inset);
 }
 
 @media (prefers-reduced-motion: reduce) {
