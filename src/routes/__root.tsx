@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -145,7 +145,7 @@ function SiteHeader() {
 function SiteFooter() {
   const { language } = useLanguage();
   const isVietnamese = language === 'vi';
-  return <footer className="bg-deep py-14 text-primary-foreground"><div className="section-wrap grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
+  return <footer className="reference-footer vn-pattern bg-deep py-14 text-primary-foreground"><div className="section-wrap grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
   <div><Link to="/" className="font-display text-2xl font-bold">PHIÊU VIỆT</Link><p className="mt-4 max-w-xs text-sm leading-7 opacity-75">{isVietnamese ? 'Tìm lại ký ức, chạm vào nguyên bản.' : 'Rediscover memories in the places where they were made.'}</p><div className="mt-6 flex gap-4"><Instagram size={18}/><Facebook size={18}/></div></div>
   <div><h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-gold">{isVietnamese ? 'Khám phá' : 'Explore'}</h3><div className="flex flex-col gap-3 text-sm opacity-80"><Link to="/discover">{isVietnamese ? 'Khám phá' : 'Discover'}</Link><Link to="/stories">{isVietnamese ? 'Câu chuyện' : 'Stories'}</Link><Link to="/journeys">{isVietnamese ? 'Hành trình' : 'Journeys'}</Link><Link to="/passport">Việt Ký</Link><Link to="/rewards">{isVietnamese ? 'Phần thưởng' : 'Rewards'}</Link></div></div>
   <div><h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-gold">{isVietnamese ? 'Đối tác' : 'For Partners'}</h3><div className="flex flex-col gap-3 text-sm opacity-80"><Link to="/partner">{isVietnamese ? 'Cổng đối tác' : 'Partner Portal'}</Link><Link to="/partner">{isVietnamese ? 'Trở thành đối tác' : 'Become a Partner'}</Link></div></div>
