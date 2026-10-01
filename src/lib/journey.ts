@@ -8,9 +8,48 @@ export type Station = {
   teaser: string; story: string; lockedStory: string; challenge: string; steps: { title: string; description: string }[];
 };
 export const stations: Station[] = [
-  { id: 'phu-binh', number: '01', name: 'Phú Bình Lantern Village', theme: 'LIGHT', category: 'Craft Villages', location: 'Hồ Chí Minh City', image: lantern, duration: '2 hours', price: 320000, rating: '4.9', artisan: 'The lantern makers of Phú Bình', teaser: 'Memories of light beneath the full moon.', story: 'Long before the streets glowed with electric light, a lantern was enough to turn an evening into a celebration. In Phú Bình, skilled hands still bend bamboo into delicate frames and stretch vibrant paper across them. The craft carries the anticipation of a childhood Mid-Autumn Festival: the rustle of paper, the warmth of a candle, and the joy of walking beneath the moon.', lockedStory: 'In the quiet of the workshop, each artisan has a story that no photograph can quite capture. Come closer, follow the lantern trail, and discover the chapter waiting at the village.', challenge: 'Search for the Old Light', steps: [{ title: 'Locate the Alley', description: "Follow the clues to locate the artisan's home." }, { title: 'Decode the Hanging Rack', description: 'Find the lantern marked with a five-pointed star and the shortest red ribbon.' }, { title: 'Retrieve the Lantern', description: 'Use the bamboo pole to carefully retrieve the lantern you discovered.' }] },
-  { id: 'tan-khanh', number: '02', name: 'Tân Khánh Piggy Bank Village · Nguyễn Văn Nhàn Workshop', theme: 'EARTH', category: 'Craft Villages', location: 'Bình Dương', image: piggy, duration: '2.5 hours', price: 280000, rating: '4.8', artisan: 'Nguyễn Văn Nhàn, a Tân Khánh clay artisan', teaser: 'Follow the clatter of clay and bring a childhood color back to life.', story: 'At the Tân Khánh piggy bank workshop, the familiar clay pig becomes a small canvas for memory. In the 30-year-old craft space of artisan Nguyễn Văn Nhàn, the clatter of molds and hand tools leads visitors to a worktable where unfinished piggy banks wait for their final details. The experience ends with a personal touch: choosing a color and painting a tiny story onto a keepsake.', lockedStory: 'The missing color is waiting somewhere in the workshop. Listen closely, search the shelves, and ask the artisan before you add the final mark to your chosen piggy bank.', challenge: 'Search for a Piece of Childhood Color', steps: [{ title: 'Follow the Sound', description: 'Follow the clatter of molds and hand tools through the 30-year-old workshop until you reach the artisan\'s worktable.' }, { title: 'Decode the Missing Piece', description: 'Find the special clay piggy bank described by the app, such as the limited-edition pig holding a gold bar or the pig on the innermost corner shelf.' }, { title: 'Receive & Add Color', description: 'Ask the artisan for a brush, choose your color, and paint the missing detail on your clay piggy bank.' }] },
-  { id: 'to-he', number: '03', name: 'Tò He Clay · Making Point & Street Vendor Basket', theme: 'FLOUR', category: 'Cultural Experiences', location: 'QL1A', image: tohe, duration: '1.5 hours', price: 240000, rating: '4.9', artisan: 'The tò he makers', teaser: 'Follow the scent of rice flour to a pocket-sized folk character.', story: 'Tò he turns rice flour, glutinous rice flour, and natural colors into tiny characters that carry the warmth of Vietnamese folk play. At the making point and street-vendor display along QL1A, visitors follow the scent of fresh dough to a basket of figures, then learn how a twist, pinch, and careful touch can bring a character to life.', lockedStory: 'A hidden character is tucked among the handmade figures. Look closely, listen to the artisan\'s story, and shape one small detail with your own hands before taking the memory home.', challenge: 'Search for the Colors of Rice Flour', steps: [{ title: 'Find the Street Basket', description: 'Follow the scent of rice flour and glutinous rice flour to the tò he display and traditional craft corner along QL1A.' }, { title: 'Find the Hidden Character', description: 'Find the exact tò he character requested by the app, such as Sun Wukong holding the Ruyi Jingu Bang hidden among the figures in the bamboo basket.' }, { title: 'Touch the Dough', description: 'With the artisan\'s guidance, knead and shape one small detail, or receive the found figure as a keepsake.' }] },
+    {
+      id: 'phu-binh', number: '01', name: 'Phu Binh Lantern Village', theme: 'LIGHT', category: 'Craft Villages',
+      location: 'Alleys around Phu Binh Parish, Lac Long Quan Street, Ward 5, District 11, Ho Chi Minh City',
+      image: lantern, duration: '2 hours', price: 180000, rating: '4.9', artisan: 'The lantern makers of Phu Binh',
+      teaser: 'Unlock a memory hidden inside a red glass-paper lantern.',
+      story: 'In the small alleys around Phu Binh Parish, rows of red glass-paper lanterns hang beneath the drying racks. Each one carries the glow of a childhood Mid-Autumn Festival and a one-of-a-kind memory prepared by a local family.',
+      lockedStory: 'The lantern museum is waiting above the alley. Reach for the bamboo hook, choose one lantern at random, and discover the keepsake hidden inside.',
+      challenge: 'Unlock the Lantern Museum',
+      steps: [
+        { title: 'Enter the Lantern Alley', description: 'Follow the lantern racks through the alleys around Phu Binh Parish on Lac Long Quan Street.' },
+        { title: 'Choose Your Lantern', description: 'Use the bamboo pole and hook to select one sealed red glass-paper lantern from the hanging rack.' },
+        { title: 'Open the Memory', description: 'Take your lantern to the artisan and discover one unique keepsake: a dried to he, a mini piggy bank, a handwritten letter, or vintage glass paper from the 1990s.' },
+      ],
+    },
+    {
+      id: 'tan-khanh', number: '02', name: 'Tan Khanh Piggy Bank Kiln Village', theme: 'EARTH', category: 'Craft Villages',
+      location: 'Nguyen Van Nhan\'s 30-year-old workshop, Khanh Loi Quarter, Tan Khanh Ward',
+      image: piggy, duration: '2 hours', price: 170000, rating: '4.8', artisan: 'Nguyen Van Nhan and the Tan Khanh clay makers',
+      teaser: 'Meet the makers behind a clay piggy bank shaped by three decades of memory.',
+      story: 'At the Tan Khanh piggy bank kiln village, clay becomes a familiar vessel for childhood savings. In Mr. Nguyen Van Nhan\'s workshop, more than 30 years of molds, firing, and hand-painted details fill the space with the warm rhythm of a living craft.',
+      lockedStory: 'The kiln room holds the story of a craft family and the small piggy bank waiting to travel home with you. Look closely, listen to the maker, and find the marked piece.',
+      challenge: 'Find the Keepsake Piggy Bank',
+      steps: [
+        { title: 'Follow the Kiln Trail', description: 'Find Mr. Nguyen Van Nhan\'s workshop in Khanh Loi Quarter and listen for the rhythm of the kiln and hand tools.' },
+        { title: 'Spot the Mark', description: 'Find the mini piggy bank stamped with the village mark among the rows of clay forms.' },
+        { title: 'Carry Home a Memory', description: 'Choose a color, add a small detail with the artisan\'s guidance, and take your mini piggy bank home.' },
+      ],
+    },
+    {
+      id: 'to-he', number: '03', name: 'CLAY To He Making & Street Vendor Point', theme: 'FLOUR', category: 'Cultural Experiences',
+      location: '2867/68/5B QL1A, Tan Thoi Nhat Ward, District 12, Ho Chi Minh City',
+      image: tohe, duration: '1.5 hours', price: 160000, rating: '4.9', artisan: 'The CLAY to he makers',
+      teaser: 'Shape a tiny folk character and follow it into the street basket.',
+      story: 'At CLAY, rice flour and natural colors become tiny figures with expressive faces and bright costumes. Visit the making point, watch the artisan\'s hands, then follow the figures into the vendor basket where Vietnamese childhood folklore comes alive.',
+      lockedStory: 'One character is waiting among the handmade figures. Find the requested shape, learn the small gesture that gives it life, and bring a piece of folk play into your own story.',
+      challenge: 'Find the Hidden To He Character',
+      steps: [
+        { title: 'Arrive at CLAY', description: 'Visit the CLAY to he making point at 2867/68/5B QL1A, Tan Thoi Nhat Ward, District 12.' },
+        { title: 'Search the Vendor Basket', description: 'Find the exact to he character requested by the app among the handmade figures and street-vendor display.' },
+        { title: 'Shape One Small Detail', description: 'With the artisan\'s guidance, knead and shape one small detail or receive the found figure as a keepsake.' },
+      ],
+    },
 ];
 export const money = (value: number) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
 export type Booking = { id: string; stationId: string; date: string; time: string; participants: number };

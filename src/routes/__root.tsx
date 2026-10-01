@@ -8,13 +8,12 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode, useState } from "react";
-import { Menu, Search, UserRound, X, ArrowRight, Instagram, Facebook } from "lucide-react";
+import { Menu, Search, UserRound, X, ArrowLeft, ArrowRight, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { JourneyProvider } from "@/components/site/JourneyContext";
 import { LanguageProvider, useLanguage } from "@/components/site/LanguageContext";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -41,9 +40,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -119,9 +115,24 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <PreviousPageButton />
       <LanguageProvider><JourneyProvider><SiteHeader /><Outlet /><SiteFooter /></JourneyProvider></LanguageProvider>
     </QueryClientProvider>
   );
+}
+
+function PreviousPageButton() {
+  const router = useRouter();
+  const pathname = router.state.location.pathname;
+  if (pathname === '/') return null;
+
+  return <button
+    type="button"
+    className="absolute left-[max(1rem,calc((100vw-1200px)/2))] top-24 z-40 flex size-10 items-center justify-center rounded-full border border-gold bg-card text-foreground shadow-lg transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    onClick={() => window.history.length > 1 ? router.history.back() : router.navigate({ to: '/' })}
+    aria-label="Previous page"
+    title="Previous page"
+  ><ArrowLeft size={18} /></button>;
 }
 
 const nav = [

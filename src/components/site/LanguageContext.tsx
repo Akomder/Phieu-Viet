@@ -51,6 +51,45 @@ const translations: Record<string, string> = {
   'Station': 'Trạm',
   'From': 'Từ',
   'hours': 'giờ',
+  'Phu Binh Lantern Village': 'Làng lồng đèn Phú Bình',
+  'Tan Khanh Piggy Bank Kiln Village': 'Xóm lò nung heo đất Tân Khánh',
+  'CLAY To He Making & Street Vendor Point': 'Điểm làm & gánh Tò he CLAY',
+  'Alleys around Phu Binh Parish, Lac Long Quan Street, Ward 5, District 11, Ho Chi Minh City': 'Các con hẻm nhỏ xung quanh Giáo xứ Phú Bình, đoạn đường Lạc Long Quân, Phường 5, Quận 11, TP. HCM',
+  'Nguyen Van Nhan\'s 30-year-old workshop, Khanh Loi Quarter, Tan Khanh Ward': 'Xưởng làm heo đất hơn 30 năm tuổi của ông Nguyễn Văn Nhàn, tại khu phố Khánh Lợi, phường Tân Khánh',
+  '2867/68/5B QL1A, Tan Thoi Nhat Ward, District 12, Ho Chi Minh City': '2867/68/5B QL1A, Phường Tân Thới Nhất, Quận 12, TP. HCM',
+  'The lantern makers of Phu Binh': 'Nghệ nhân làng lồng đèn Phú Bình',
+  'Nguyen Van Nhan and the Tan Khanh clay makers': 'Ông Nguyễn Văn Nhàn và các nghệ nhân đất sét Tân Khánh',
+  'The CLAY to he makers': 'Nghệ nhân Tò he CLAY',
+  'Unlock a memory hidden inside a red glass-paper lantern.': 'Mở khóa ký ức ẩn bên trong một chiếc lồng đèn giấy kính đỏ.',
+  'Meet the makers behind a clay piggy bank shaped by three decades of memory.': 'Gặp những người làm nên chiếc heo đất từ ký ức hơn ba thập kỷ.',
+  'Shape a tiny folk character and follow it into the street basket.': 'Nặn một nhân vật dân gian nhỏ và theo dấu nhân vật vào gánh hàng rong.',
+  'Unlock the Lantern Museum': 'Mở khóa bảo tàng trong lòng đèn',
+  'Find the Keepsake Piggy Bank': 'Tìm chiếc heo đất ký ức',
+  'Find the Hidden To He Character': 'Tìm nhân vật Tò he ẩn giấu',
+  'In the small alleys around Phu Binh Parish, rows of red glass-paper lanterns hang beneath the drying racks. Each one carries the glow of a childhood Mid-Autumn Festival and a one-of-a-kind memory prepared by a local family.': 'Trong những con hẻm nhỏ quanh Giáo xứ Phú Bình, những dãy lồng đèn giấy kính đỏ treo rợp dưới giàn phơi. Mỗi chiếc mang theo ánh sáng của một mùa Trung thu tuổi thơ và một món quà ký ức độc bản do người dân địa phương chuẩn bị.',
+  'The lantern museum is waiting above the alley. Reach for the bamboo hook, choose one lantern at random, and discover the keepsake hidden inside.': 'Bảo tàng trong lòng đèn đang chờ trên cao. Cầm sào tre móc, chọn ngẫu nhiên một chiếc lồng đèn và khám phá món quà ký ức ẩn bên trong.',
+  'At the Tan Khanh piggy bank kiln village, clay becomes a familiar vessel for childhood savings. In Mr. Nguyen Van Nhan\'s workshop, more than 30 years of molds, firing, and hand-painted details fill the space with the warm rhythm of a living craft.': 'Tại xóm lò nung heo đất Tân Khánh, đất sét trở thành chiếc hộp thân thuộc lưu giữ những đồng tiền tuổi thơ. Trong xưởng của ông Nguyễn Văn Nhàn, hơn 30 năm khuôn đúc, nung lò và vẽ tay tạo nên nhịp sống ấm áp của một nghề truyền thống.',
+  'The kiln room holds the story of a craft family and the small piggy bank waiting to travel home with you. Look closely, listen to the maker, and find the marked piece.': 'Gian lò giữ câu chuyện của một gia đình làm nghề và chiếc heo đất nhỏ đang chờ theo bạn về nhà. Hãy quan sát thật kỹ, lắng nghe nghệ nhân và tìm món đồ có dấu hiệu đặc biệt.',
+  'At CLAY, rice flour and natural colors become tiny figures with expressive faces and bright costumes. Visit the making point, watch the artisan\'s hands, then follow the figures into the vendor basket where Vietnamese childhood folklore comes alive.': 'Tại CLAY, bột gạo và màu tự nhiên trở thành những hình hài nhỏ với gương mặt sinh động và trang phục rực rỡ. Ghé điểm làm, xem đôi tay nghệ nhân rồi theo các nhân vật đến gánh hàng, nơi ký ức dân gian tuổi thơ Việt Nam sống dậy.',
+  'One character is waiting among the handmade figures. Find the requested shape, learn the small gesture that gives it life, and bring a piece of folk play into your own story.': 'Một nhân vật đang chờ giữa những hình hài thủ công. Tìm đúng hình dáng được yêu cầu, học một động tác nhỏ để thổi hồn cho nhân vật và mang một mảnh trò chơi dân gian vào câu chuyện của bạn.',
+  'Enter the Lantern Alley': 'Bước vào hẻm đèn',
+  'Choose Your Lantern': 'Chọn chiếc lồng đèn của bạn',
+  'Open the Memory': 'Mở món quà ký ức',
+  'Follow the Kiln Trail': 'Theo dấu lò nung',
+  'Spot the Mark': 'Tìm dấu hiệu đặc biệt',
+  'Carry Home a Memory': 'Mang ký ức về nhà',
+  'Arrive at CLAY': 'Đến CLAY',
+  'Search the Vendor Basket': 'Tìm trong gánh hàng',
+  'Shape One Small Detail': 'Nặn một chi tiết nhỏ',
+  'Follow the lantern racks through the alleys around Phu Binh Parish on Lac Long Quan Street.': 'Theo những giàn đèn qua các con hẻm quanh Giáo xứ Phú Bình trên đoạn đường Lạc Long Quân.',
+  'Use the bamboo pole and hook to select one sealed red glass-paper lantern from the hanging rack.': 'Dùng cây sào tre và móc để chọn một chiếc lồng đèn giấy kính đỏ được niêm kín trên giàn cao.',
+  'Take your lantern to the artisan and discover one unique keepsake: a dried to he, a mini piggy bank, a handwritten letter, or vintage glass paper from the 1990s.': 'Mang lồng đèn đến nghệ nhân và khám phá một món quà độc bản: một con Tò he sấy khô, một chiếc heo đất mini, một lá thư tay hoặc mảnh giấy kính màu xưa từ thập niên 90.',
+  'Find Mr. Nguyen Van Nhan\'s workshop in Khanh Loi Quarter and listen for the rhythm of the kiln and hand tools.': 'Tìm xưởng của ông Nguyễn Văn Nhàn tại khu phố Khánh Lợi và lắng nghe nhịp lò nung cùng tiếng dụng cụ thủ công.',
+  'Find the mini piggy bank stamped with the village mark among the rows of clay forms.': 'Tìm chiếc heo đất mini có dập logo xóm nghề giữa những hàng hình hài đất sét.',
+  'Choose a color, add a small detail with the artisan\'s guidance, and take your mini piggy bank home.': 'Chọn một màu, thêm một chi tiết nhỏ cùng sự hướng dẫn của nghệ nhân và mang chiếc heo đất mini về nhà.',
+  'Visit the CLAY to he making point at 2867/68/5B QL1A, Tan Thoi Nhat Ward, District 12.': 'Ghé điểm làm Tò he CLAY tại 2867/68/5B QL1A, Phường Tân Thới Nhất, Quận 12.',
+  'Find the exact to he character requested by the app among the handmade figures and street-vendor display.': 'Tìm đúng nhân vật Tò he được ứng dụng yêu cầu giữa những hình hài thủ công và gánh hàng.',
+  'With the artisan\'s guidance, knead and shape one small detail or receive the found figure as a keepsake.': 'Dưới sự hướng dẫn của nghệ nhân, nhào nặn một chi tiết nhỏ hoặc nhận nhân vật đã tìm thấy làm kỷ niệm.',
   'The living archive': 'Kho lưu trữ sống',
   'Stories worth finding': 'Những câu chuyện đáng tìm',
   'Three chapters. Three traditions. Each story begins here and continues where the craft lives.': 'Ba chương. Ba truyền thống. Mỗi câu chuyện bắt đầu từ đây và tiếp nối nơi nghề thủ công hiện hữu.',
@@ -113,7 +152,6 @@ const translations: Record<string, string> = {
   'This is a prototype reservation. No payment is collected and your chosen date is not confirmed with a venue.': 'Đây là đặt chỗ bản mẫu. Không có khoản thanh toán nào được thu và ngày bạn chọn chưa được xác nhận với địa điểm.',
   'Booking summary': 'Tóm tắt đặt chỗ',
   'Experience ×': 'Trải nghiệm ×',
-  'Platform fee (5%)': 'Phí nền tảng (5%)',
   'Total': 'Tổng cộng',
   'Confirm Booking': 'Xác nhận đặt chỗ',
   'The story begins': 'Câu chuyện bắt đầu',
@@ -164,6 +202,9 @@ const translations: Record<string, string> = {
   'Question': 'Câu hỏi',
   'of 3': 'trên 3',
   'What did you experience?': 'Bạn đã trải nghiệm điều gì?',
+  'I used the bamboo pole to retrieve a lantern.': 'Tôi đã tự tay dùng sào tre rút lồng đèn',
+  'I found the clay piggy bank.': 'Tôi đã tìm heo đất',
+  'I followed the clue to find a to he figure.': 'Tôi đã tìm tò he theo manh mối',
   'I followed the clue.': 'Tôi đã đi theo manh mối.',
   'I talked with the artisan.': 'Tôi đã trò chuyện với nghệ nhân.',
   'I explored the station.': 'Tôi đã khám phá trạm.',
@@ -172,9 +213,9 @@ const translations: Record<string, string> = {
   'Tell us about your experience...': 'Hãy kể cho chúng tôi về trải nghiệm của bạn...',
   'Your experience': 'Trải nghiệm của bạn',
   'Would you come back to conquer the next station?': 'Bạn có quay lại để chinh phục trạm tiếp theo không?',
-  "Definitely — I'm ready for the next station.": 'Chắc chắn rồi — tôi đã sẵn sàng cho trạm tiếp theo.',
-  "I'm a little tired, but excited for the next one.": 'Tôi hơi mệt, nhưng rất háo hức với trạm tiếp theo.',
-  "I'll invite friends and come back later.": 'Tôi sẽ rủ bạn bè và quay lại sau.',
+  "Definitely — I'm ready for the next station.": 'Chắc chắn rồi! Lên đường sang trạm tiếp theo ngay đây.',
+  "I'm a little tired, but excited to see what the next station has in store.": 'Hơi mệt chút nhưng rất háo hức muốn xem trạm kế tiếp có gì.',
+  "I'll invite my closest friends and come back to conquer the next station.": 'Từ từ để tôi rủ thêm cạ cứng cùng đi chinh phục trạm sau.',
   'Next question': 'Câu hỏi tiếp theo',
   'Collect memory piece': 'Thu thập mảnh ký ức',
   'Back': 'Quay lại',
@@ -224,7 +265,8 @@ const translations: Record<string, string> = {
   'Lantern craft village': 'Làng nghề đèn lồng',
   'Our reason for wandering': 'Lý do chúng ta lên đường',
   'The stories we keep are the stories we live.': 'Những câu chuyện ta gìn giữ là những câu chuyện ta sống cùng.',
-  'Phiêu Việt is a cultural journey through the places, people, and crafts that shaped Vietnamese childhood. We believe heritage feels closest when you meet the hands keeping it alive.': 'Phiêu Việt là hành trình văn hóa qua những nơi chốn, con người và nghề thủ công đã nuôi dưỡng tuổi thơ Việt Nam. Chúng tôi tin di sản trở nên gần gũi nhất khi bạn gặp những đôi tay đang gìn giữ nó.',
+  "Phiêu Việt was created to bridge the gap between rich local cultural resources and young customers' need for active, interactive experiences. Many valuable cultural experiences remain scattered, requiring users to search for and connect the information themselves; meanwhile, some artisan activities and local organizations still lack suitable channels to reach customers.": 'Phiêu Việt được xây dựng nhằm giải quyết khoảng trống giữa nguồn tài nguyên văn hóa địa phương phong phú và nhu cầu trải nghiệm chủ động, tương tác của khách hàng trẻ. Nhiều trải nghiệm văn hóa có giá trị nhưng còn phân tán, khiến người dùng phải tự tìm kiếm và kết nối thông tin; trong khi đó, một số hoạt động của nghệ nhân và đơn vị địa phương chưa có thêm nhiều kênh tiếp cận khách hàng phù hợp.',
+  "For this reason, Phiêu Việt is not intended to own destinations or organize every part of a trip. Instead, it connects and designs experiences by bringing local partners' cultural discovery points and activities together into themed journeys, combining interactive challenges with Việt Ký to record each user's exploration. This turns each individual experience into a connected cultural journey that can continue and unfold over time.": 'Từ khoảng trống này, Phiêu Việt không định hướng trở thành đơn vị sở hữu điểm đến hay tổ chức toàn bộ hoạt động du lịch, mà đóng vai trò kết nối và thiết kế trải nghiệm. Dự án tập hợp các điểm khám phá và hoạt động văn hóa từ đối tác địa phương thành những hành trình có chủ đề, kết hợp thử thách tương tác và Việt Ký để ghi nhận quá trình khám phá của người dùng. Qua đó, mỗi trải nghiệm riêng lẻ có thể trở thành một phần của hành trình văn hóa có tính liên kết và tiếp nối.',
   'Follow a lantern into a village workshop. Shape a keepsake from clay. Discover a tiny figure made from rice flour. Along the way, stories become experiences, and experiences become memories you can carry.': 'Theo ánh đèn vào xưởng làng nghề. Tạo một món quà từ đất sét. Khám phá hình hài nhỏ làm từ bột gạo. Trên hành trình ấy, câu chuyện trở thành trải nghiệm và trải nghiệm trở thành ký ức bạn có thể mang theo.',
   'Content overview': 'Tổng quan nội dung',
   'Prototype overview of the Phiêu Việt stories, stations, and journey activity.': 'Tổng quan bản mẫu về câu chuyện, trạm và hoạt động hành trình của Phiêu Việt.',
@@ -248,7 +290,6 @@ const translations: Record<string, string> = {
   'Share this memory': 'Chia sẻ ký ức này',
   'Previous step': 'Bước trước',
   'Challenge unavailable.': 'Thử thách không khả dụng.',
-  'Design your journey': 'Thiết kế hành trình',
   'Find a cultural itinerary inspired by your time and interests.': 'Tìm lịch trình văn hóa dựa trên thời gian và sở thích của bạn.',
   'Design Your Journey': 'Thiết kế hành trình của bạn',
   'Tell us how you want to experience Vietnam. We’ll sketch a cultural route around you.': 'Hãy cho chúng tôi biết bạn muốn trải nghiệm Việt Nam như thế nào. Chúng tôi sẽ phác thảo một tuyến văn hóa dành riêng cho bạn.',
@@ -332,6 +373,9 @@ const translations: Record<string, string> = {
   'Your digital memory ticket': 'Vé ký ức số của bạn',
   'Your prototype reservation has been saved on this device.': 'Đặt chỗ bản mẫu của bạn đã được lưu trên thiết bị này.',
   'Digital Experience Ticket': 'Vé trải nghiệm số',
+  'This ticket and QR symbol are a prototype and are not valid for admission or venue verification.': 'Vé và mã QR này chỉ là bản mẫu, không có giá trị để vào cửa hoặc xác minh tại địa điểm.',
+  'Continue the journey': 'Tiếp tục hành trình',
+  'Begin station challenge': 'Bắt đầu thử thách tại trạm',
   'Guests': 'Khách tham gia',
   'Show this ticket at the station.': 'Xuất trình vé này tại trạm.',
   'Back to your profile': 'Quay lại hồ sơ',
@@ -357,8 +401,6 @@ const translations: Record<string, string> = {
   'Use the bamboo pole to carefully retrieve the lantern you discovered.': 'Dùng sào tre để cẩn thận lấy chiếc đèn lồng bạn đã tìm thấy.',
   'Long before the streets glowed with electric light, a lantern was enough to turn an evening into a celebration. In Phú Bình, skilled hands still bend bamboo into delicate frames and stretch vibrant paper across them. The craft carries the anticipation of a childhood Mid-Autumn Festival: the rustle of paper, the warmth of a candle, and the joy of walking beneath the moon.': 'Từ rất lâu trước khi đường phố rực sáng bởi đèn điện, một chiếc đèn lồng đã đủ biến buổi tối thành lễ hội. Ở Phú Bình, những đôi tay khéo léo vẫn uốn tre thành khung mảnh và căng giấy rực rỡ lên đó. Nghề thủ công mang theo niềm mong đợi của Tết Trung thu tuổi thơ: tiếng giấy xào xạc, hơi ấm ngọn nến và niềm vui bước đi dưới ánh trăng.',
   'In the quiet of the workshop, each artisan has a story that no photograph can quite capture. Come closer, follow the lantern trail, and discover the chapter waiting at the village.': 'Trong sự tĩnh lặng của xưởng nghề, mỗi nghệ nhân đều có một câu chuyện mà không bức ảnh nào có thể ghi lại trọn vẹn. Hãy đến gần hơn, theo dấu đèn lồng và khám phá chương chuyện đang chờ ở ngôi làng.',
-  'Tân Khánh Piggy Bank Village · Nguyễn Văn Nhàn Workshop': 'Xóm Lò Nung Heo Đất Tân Khánh · Xưởng ông Nguyễn Văn Nhàn',
-  'Tò He Clay · Making Point & Street Vendor Basket': 'Điểm Làm & Gánh Tò He',
   'A small clay piggy bank once held a world of possibilities. At Tân Khánh, artisans shape earth into the familiar childhood companion, then add color and character by hand. Every piece begins as a lump of clay and ends as a vessel for hopes, plans, and little treasures.': 'Tại xóm lò nung heo đất Tân Khánh, chú heo đất quen thuộc trở thành một mảnh ký ức tuổi thơ. Trong xưởng thủ công 30 năm tuổi của nghệ nhân Nguyễn Văn Nhàn, tiếng gõ lạch cạch của khuôn và dụng cụ dẫn lối người chơi đến bàn làm việc, nơi những chú heo đất mộc đang chờ hoàn thiện. Trải nghiệm khép lại bằng dấu ấn riêng: chọn một màu và tô điểm câu chuyện nhỏ lên món quà mang về.',
   'There is more to this craft than meets the eye. Listen for the workshop sounds and find the piece that tells your own story.': 'Mảng màu còn thiếu đang chờ đâu đó trong xưởng. Hãy lắng nghe thật kỹ, tìm trên các kệ và xin phép nghệ nhân trước khi đặt nét cuối cùng lên chú heo đất của bạn.',
   'Follow the clatter of molds and hand tools through the 30-year-old workshop until you reach the artisan\'s worktable.': 'Lần theo tiếng gõ lạch cạch của khuôn và dụng cụ qua xưởng thủ công 30 năm tuổi để tìm đến bàn làm việc của nghệ nhân.',
@@ -369,11 +411,6 @@ const translations: Record<string, string> = {
   'Follow the scent of rice flour and glutinous rice flour to the tò he display and traditional craft corner along QL1A.': 'Dò theo mùi thơm của bột gạo và bột nếp để tìm không gian trưng bày tò he và góc truyền nghề trên QL1A.',
   'Find the exact tò he character requested by the app, such as Sun Wukong holding the Ruyi Jingu Bang hidden among the figures in the bamboo basket.': 'Tìm đúng con vật hoặc nhân vật tò he theo yêu cầu trên ứng dụng, chẳng hạn Tôn Ngộ Không cầm Như Ý Kim Cô Bổng ẩn giữa các hình trong giỏ tre.',
   'With the artisan\'s guidance, knead and shape one small detail, or receive the found figure as a keepsake.': 'Sau khi tìm đúng mục tiêu, hãy để nghệ nhân hướng dẫn bạn nhào nặn một chi tiết nhỏ hoặc nhận trực tiếp tác phẩm ấy làm kỷ niệm.',
-  'The sound of clay and childhood savings.': 'Tiếng đất và những khoản tiết kiệm tuổi thơ.',
-  'The first toys shaped from flour and natural colors.': 'Những món đồ chơi đầu tiên được nặn từ bột gạo và màu tự nhiên.',
-  'Memories of light beneath the full moon.': 'Ký ức ánh sáng dưới trăng rằm.',
-  'The sound of clay and childhood savings.': 'Âm thanh của đất và những khoản tiết kiệm tuổi thơ.',
-  'The first toys shaped from flour and natural colors.': 'Những món đồ chơi đầu tiên được nặn từ bột và màu tự nhiên.',
   'Station ${number} · ${theme}': 'Trạm ${number} · ${theme}',
   'From ${formatted price}': 'Từ ${formatted price}',
   'A lantern glowing in the night. The first coins in a clay piggy bank. A tiny figure shaped by hand. Phiêu Việt takes you beyond the screen and into the workshops, stories, and people keeping childhood traditions alive.': 'Một chiếc đèn lồng tỏa sáng trong đêm. Những đồng tiền đầu tiên trong chú heo đất. Một hình hài nhỏ được nặn bằng tay. Phiêu Việt đưa bạn vượt ra ngoài màn hình để bước vào những xưởng nghề, câu chuyện và con người đang gìn giữ truyền thống tuổi thơ.',
@@ -423,20 +460,29 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('vi');
 
   useEffect(() => {
-    const initialLanguage = loadLanguage();
-    setLanguage(initialLanguage);
-    document.documentElement.lang = initialLanguage;
+    const frame = window.requestAnimationFrame(() => {
+      const initialLanguage = loadLanguage();
+      setLanguage(initialLanguage);
+      document.documentElement.lang = initialLanguage;
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
-    translateDocument(language);
-    const observer = new MutationObserver(() => {
-      observer.disconnect();
+    let observer: MutationObserver | undefined;
+    const frame = window.requestAnimationFrame(() => {
       translateDocument(language);
+      observer = new MutationObserver(() => {
+        observer?.disconnect();
+        translateDocument(language);
+        observer?.observe(document.body, { childList: true, subtree: true });
+      });
       observer.observe(document.body, { childList: true, subtree: true });
     });
-    observer.observe(document.body, { childList: true, subtree: true });
-    return () => observer.disconnect();
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+    };
   }, [language]);
 
   function changeLanguage(nextLanguage: Language) {
