@@ -1,6 +1,9 @@
 import lantern from '@/assets/craft-lantern.jpg';
 import piggy from '@/assets/craft-piggy.jpg';
 import tohe from '@/assets/craft-tohe.jpg';
+import image from '@/assets/image.jpg';
+import image1 from '@/assets/image1.jpg';
+
 
 export type Station = {
   id: string; number: string; name: string; theme: string; category: string; location: string;
@@ -48,6 +51,34 @@ export const stations: Station[] = [
         { title: 'Arrive at CLAY', description: 'Visit the CLAY to he making point at 2867/68/5B QL1A, Tan Thoi Nhat Ward, District 12.' },
         { title: 'Search the Vendor Basket', description: 'Find the exact to he character requested by the app among the handmade figures and street-vendor display.' },
         { title: 'Shape One Small Detail', description: 'With the artisan\'s guidance, knead and shape one small detail or receive the found figure as a keepsake.' },
+      ],
+    },
+    {
+      id: 'quang-san-art-museum', number: '04', name: 'Quang San Art Museum', theme: 'ART', category: 'Museums',
+      location: '189B/3 Nguyen Van Huong, An Khanh Ward, Ho Chi Minh City',
+      image: image, duration: '2 hours', price: 150000, rating: '4.8', artisan: 'Quang San Art Museum',
+      teaser: 'Explore a diverse art collection by the Saigon River and join creative workshops.',
+      story: 'Quang San Art Museum is an art space located on a 2,000 m² campus by the Saigon River. The museum\'s collection spans from the Indochina period (1925-1945), the 1945-1975 period to contemporary Vietnamese art. It perfectly aligns with Phieu Viet\'s vision by combining cultural and artistic values with hands-on experiences.',
+      lockedStory: 'The museum frequently hosts practical activities such as silk painting, paper fan making, drawing, and crafting poonah paper lanterns. These creative experiences are waiting for you to discover.',
+      challenge: 'Experience Creative Art',
+      steps: [
+        { title: 'Explore the Collection', description: 'Journey through the Indochina, modern, and contemporary art periods.' },
+        { title: 'Join a Workshop', description: 'Participate in hands-on activities like silk painting or crafting poonah paper lanterns.' },
+        { title: 'Create Your Masterpiece', description: 'Follow the guidance to create your own unique art piece.' },
+      ],
+    },
+    {
+      id: 'independence-palace', number: '05', name: 'Independence Palace', theme: 'HISTORY', category: 'Historical Sites',
+      location: '135 Nam Ky Khoi Nghia, Ben Thanh Ward, District 1, Ho Chi Minh City',
+      image: image1, duration: '2 hours', price: 65000, rating: '4.9', artisan: 'Independence Palace',
+      teaser: 'On the noon of April 30, 1975, the crash of tank 390 through the iron gates closed a long war and placed the Independence Palace in history books.',
+      story: 'But before that fateful moment, this place was not merely the power headquarters of the old Saigon regime. Hidden behind the stone curtain blocks shaped like elegant bamboo joints is a structure containing the profound feng shui calculations of architect Ngo Viet Thu. The entire mansion was designed after Chinese characters representing aspirations for a wise ruler and eternity: Cat, Khanh, Chu, Trung.',
+      lockedStory: 'Yet, why did a structure so carefully calculated down to every dragon vein, possessing a solid underground command bunker system that could withstand heavy bombs, witness such rapid collapse in those fiery April days? Where does the secret underground escape route really lead? What breathless moment is the red paint mark on the Palace roof hiding?',
+      challenge: 'Decode the Secret of the Palace',
+      steps: [
+        { title: 'The Feng Shui Architecture', description: 'Discover the hidden meaning behind the elegant bamboo-joint stone curtains and the Chinese characters designed into the mansion.' },
+        { title: 'The Underground Bunker', description: 'Explore the solid underground command bunker system and the secret escape route.' },
+        { title: 'The Fateful Moment', description: 'Find the red paint mark on the Palace roof and uncover the breathtaking historical moment it conceals.' },
       ],
     },
 ];
