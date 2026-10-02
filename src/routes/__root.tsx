@@ -14,6 +14,7 @@ import { JourneyProvider } from "@/components/site/JourneyContext";
 import { LanguageProvider, useLanguage } from "@/components/site/LanguageContext";
 
 import appCss from "../styles.css?url";
+import logo from "../assets/logo.jpg";
 
 function NotFoundComponent() {
   return (
@@ -84,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: logo, type: "image/jpeg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" },
@@ -145,7 +146,7 @@ function SiteHeader() {
   const isVietnamese = language === 'vi';
   return <header className="site-glass sticky top-0 z-50 border-b border-white/60">
     <div className="section-wrap flex h-[76px] items-center justify-between gap-5">
-      <Link to="/" className="flex shrink-0 items-center gap-2 text-primary" onClick={() => setOpen(false)} aria-label="Phiêu Việt home"><span className="flex size-8 items-center justify-center border border-gold font-display text-xl leading-none">P</span><span className="font-display text-xl font-bold tracking-wide sm:text-2xl">PHIÊU VIỆT</span></Link>
+      <Link to="/" className="flex shrink-0 items-center text-primary" onClick={() => setOpen(false)} aria-label="Phiêu Việt home"><img src={logo} alt="Phiêu Việt" className="h-16 w-16 object-contain" /></Link>
       <nav className="hidden items-center gap-7 lg:flex" aria-label={isVietnamese ? 'Điều hướng chính' : 'Main navigation'}>{nav.map(item => <Link key={item.to} to={item.to} className="text-xs font-semibold uppercase tracking-widest text-foreground transition-colors hover:text-primary" activeProps={{ className: 'text-primary' }}>{isVietnamese ? item.vi : item.en}</Link>)}</nav>
       <div className="hidden items-center gap-2 lg:flex"><Button asChild variant="ghost" size="icon" title={isVietnamese ? 'Tìm kiếm' : 'Search'}><Link to="/discover"><Search /></Link></Button><Button asChild variant="ghost" size="icon" title={isVietnamese ? 'Hồ sơ' : 'Profile'}><Link to="/profile"><UserRound /></Link></Button><Button variant="ghost" size="sm" onClick={toggleLanguage} aria-label={isVietnamese ? 'Switch to English' : 'Chuyển sang tiếng Việt'} aria-pressed={!isVietnamese}>{isVietnamese ? 'EN' : 'VI'}</Button><Button asChild size="lg"><Link to="/discover">{isVietnamese ? 'Bắt đầu hành trình' : 'Start Your Journey'} <ArrowRight /></Link></Button></div>
       <div className="flex items-center gap-1 lg:hidden"><Button variant="ghost" size="sm" onClick={toggleLanguage} aria-label={isVietnamese ? 'Switch to English' : 'Chuyển sang tiếng Việt'}>{isVietnamese ? 'EN' : 'VI'}</Button><Button variant="ghost" size="icon" onClick={() => setOpen(!open)} aria-label={open ? (isVietnamese ? 'Đóng menu' : 'Close menu') : (isVietnamese ? 'Mở menu' : 'Open menu')}>{open ? <X /> : <Menu />}</Button></div>
