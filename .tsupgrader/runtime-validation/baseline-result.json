@@ -1,0 +1,120 @@
+{
+  "planHash": "33bff30a87ff4319b977441de5098cf5e8ce49e872d970fd1d83420590d863eb",
+  "phase": "baseline",
+  "recordedAtUtc": "2026-10-02T04:51:47.2023249Z",
+  "retryCount": 0,
+  "resetBaseline": false,
+  "complete": true,
+  "result": {
+    "setupSucceeded": true,
+    "setupDurationMs": 104172,
+    "setupFailureOutput": null,
+    "assertions": [
+      {
+        "name": "tsc-no-emit",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "",
+        "durationMs": 20296
+      },
+      {
+        "name": "dev-server-serves-home",
+        "kind": "http-probe",
+        "verificationMethod": "http-status",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": null,
+        "outputSample": "HTTP 200\n\u003C!DOCTYPE html\u003E\u003Chtml lang=\u0022vi\u0022\u003E\u003Chead\u003E\u003Cmeta charSet=\u0022utf-8\u0022/\u003E\u003Cmeta name=\u0022viewport\u0022 content=\u0022width=device-width, initial-scale=1\u0022/\u003E\u003Clink rel=\u0022preload\u0022 as=\u0022image\u0022 href=\u0022/src/assets/logo.jpg\u0022/\u003E\u003Clink rel=\u0022preload\u0022 as=\u0022image\u0022 href=\u0022/src/assets/hero-lanterns.jpg\u0022/\u003E\u003Clink rel=\u0022stylesheet\u0022 href=\u0022/src/styles.css\u0022 data-precedence=\u0022default\u0022/\u003E\u003Clink rel=\u0022stylesheet\u0022 href=\u0022https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700\u0026amp;family=Playfair\u002BDisplay:wght@400;500;600;700\u0026amp;display=swap\u0022 data-precedence=\u0022default\u0022/\u003E\u003Clink rel=\u0022stylesheet\u0022 href=\u0022/@tanstack-start/styles.css?routes=__root__%2C%2F\u0022 data-tanstack-router-dev-styles=\u0022true\u0022 data-precedence=\u0022default\u0022/\u003E\u003Ctitle\u003ECultural journeys \u2014 Phi\u00EAu Vi\u1EC7t\u003C/title\u003E\u003Cmeta name=\u0022description\u0022 content=\u0022Rediscover memories and reconnect with authentic Vietnamese heritage through stories, craft villages, and cultural experiences.\u0022/\u003E\u003Cmeta property=\u0022og:title\u0022 content=\u0022Cultural journeys \u2014 Phi\u00EAu Vi\u1EC7t\u0022/\u003E\u003Cmeta property=\u0022og:description\u0022 content=\u0022Rediscover memories and reconnect with authentic Vietnamese heritage through stories, craft villages, and cultural experiences.\u0022/\u003E\u003Cmeta property=\u0022og:type\u0022 content=\u0022website\u0022/\u003E\u003Cmeta name=\u0022twitter:card\u0022 content=\u0022summary_large_image\u0022/\u003E\u003Clink rel=\u0022modulepreload\u0022 href=\u0022/@id/virtual:tanstack-start-dev-client-entry\u0022/\u003E\u003Clink rel=\u0022icon\u0022 href=\u0022/src/assets/logo.jpg\u0022 type=\u0022image/jpeg\u0022/\u003E\u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.googleapis.com\u0022/\u003E\u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.gstatic.com\u0022 crossorigin=\u0022anonymous\u0022/\u003E\u003C/head\u003E\u003Cbody\u003E\u003Cheader class=\u0022site-glass sticky top-0 z-50 border-b border-white/60\u0022\u003E\u003Cdiv class=\u0022section-wrap flex h-[76px] items-center justify-between gap-5\u0022\u003E\u003Ca aria-label=\u0022Phi\u00EAu Vi\u1EC7t home\u0022 class=\u0022flex shrink-0 items-center text-primary active\u0022 href=\u0022/\u0022 data-status=\u0022active\u0022 aria-current=\u0022page\u0022\u003E\u003Cimg src=\u0022/src/assets/logo.jpg\u0022 alt=\u0022Phi\u00EAu Vi\u1EC7t\u0022 class=\u0022h-16 w-16 object-contain\u0022/\u003E\u003C/a\u003E\u003Cnav class=\u0022hidden items-center gap-7 lg:flex\u0022 aria-label=\u0022\u0110i\u1EC1u h\u01B0\u1EDBng ch\u00EDnh\u0022\u003E\u003Ca href=\u0022/discover\u0022 class=\u0022text-xs font-semibold uppercase tracking-widest text-foreground transition-colors hover:text-primary\u0022\u003EKh\u00E1m ph\u00E1\u003C/a\u003E\u003Ca href=\u0022/journeys\u0022 class=\u0022text-xs font-semibold uppercase tracking-widest text-foreground transition-colors hover:text-primary\u0022\u003EH\u00E0nh tr\u00ECnh\u003C/a\u003E\u003Ca href=\u0022/stories\u0022 class=\u0022text-xs font-semibold uppercase tracking-widest text-foreground transition-colors hover:text-primary\u0022\u003EC\u00E2u chuy\u1EC7n\u003C/a\u003E\u003Ca href=\u0022/passport\u0022 class=\u0022text-xs font-semibold uppercase tracking-widest text-foreground transition-colors hover:text-primary\u0022\u003EVi\u1EC7t K\u00FD\u003C/a\u003E\u003Ca href=\u0022/about\u0022 class=\u0022text-xs font-semibold uppercase tracking-widest text-foreground transition-colors hover:text-primary\u0022\u003EV\u1EC1 Phi\u00EAu Vi\u1EC7t\u003C/a\u003E\u003C/nav\u003E\u003Cdiv class=\u0022hidden items-center gap-2 lg:flex\u0022\u003E\u003Ca title=\u0022T\u00ECm ki\u1EBFm\u0022 href=\u0022/discover\u0022 class=\u0022neu-press inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [\u0026amp;_svg]:pointer-events-none [\u0026amp;_svg]:size-4 [\u0026amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 w-9\u0022\u003E\u003Csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 width=\u002224\u0022 height=\u002224\u0022 viewBox=\u00220 0 24 24\u0022 fill=\u0022none\u0022 stroke=\u0022currentColor\u0022 stroke-width=\u00222\u0022 stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022 class=\u0022lucide lucide-search\u0022 aria-hidden=\u0022true\u0022\u003E\u003Cpath d=\u0022m21 21-4.34-4.34\u0022\u003E\u003C/path\u003E\u003Ccircle cx=\u002211\u0022 cy=\u002211\u0022 r=\u00228\u0022\u003E\u003C/circle\u003E\u003C/svg\u003E\u003C/a\u003E\u003Ca title=\u0022H\u1ED3 s\u01A1\u0022 href=\u0022/profile\u0022 class=\u0022neu-press inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [\u0026amp;_svg]:pointer-events-none [\u0026amp;_svg]:size-4 [\u0026amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 w-9\u0022\u003E\u003Csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 width=\u002224\u0022 height=\u002224\u0022 viewBox=\u00220 0 24 24\u0022 fill=\u0022none\u0022 stroke=\u0022currentColor\u0022 stroke-width=\u00222\u0022 stroke-li\n\u2026[truncated]",
+        "durationMs": 2149
+      },
+      {
+        "name": "tests-pass",
+        "kind": "process",
+        "verificationMethod": "test-results",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E test\r\n\u003E vitest run\r\n\r\n\r\n\u001B[1m\u001B[46m RUN \u001B[49m\u001B[22m \u001B[36mv3.2.7 \u001B[39m\u001B[90mC:/Users/souka/OneDrive/Desktop/Phieu-Viet/Phieu-Viet\u001B[39m\r\n\r\n \u001B[32m\u2713\u001B[39m src/lib/journey.spec.ts \u001B[2m(\u001B[22m\u001B[2m3 tests\u001B[22m\u001B[2m)\u001B[22m\u001B[32m 31\u001B[2mms\u001B[22m\u001B[39m\r\n\r\n\u001B[2m Test Files \u001B[22m \u001B[1m\u001B[32m1 passed\u001B[39m\u001B[22m\u001B[90m (1)\u001B[39m\r\n\u001B[2m      Tests \u001B[22m \u001B[1m\u001B[32m3 passed\u001B[39m\u001B[22m\u001B[90m (3)\u001B[39m\r\n\u001B[2m   Start at \u001B[22m 11:51:43\r\n\u001B[2m   Duration \u001B[22m 1.86s\u001B[2m (transform 161ms, setup 0ms, collect 192ms, tests 31ms, environment 0ms, prepare 771ms)\u001B[22m\r\n\r\n",
+        "durationMs": 12463,
+        "testResults": {
+          "testFramework": "vitest",
+          "runnerDetectedFrom": "package_json",
+          "testsTotal": 3,
+          "testsPassed": 3,
+          "testsFailed": 0,
+          "testsSkipped": 0,
+          "parseFailed": false
+        }
+      }
+    ],
+    "executions": [
+      {
+        "source": "setup[0]",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "ci"
+        ],
+        "cwd": "C:\\Users\\souka\\OneDrive\\Desktop\\Phieu-Viet\\Phieu-Viet",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "devServer",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "dev"
+        ],
+        "cwd": "C:\\Users\\souka\\OneDrive\\Desktop\\Phieu-Viet\\Phieu-Viet",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "tsc-no-emit",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npx.CMD",
+        "args": [
+          "tsc",
+          "--noEmit"
+        ],
+        "cwd": "C:\\Users\\souka\\OneDrive\\Desktop\\Phieu-Viet\\Phieu-Viet",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "dev-server-serves-home",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "dev"
+        ],
+        "cwd": "C:\\Users\\souka\\OneDrive\\Desktop\\Phieu-Viet\\Phieu-Viet",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "tests-pass",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "test"
+        ],
+        "cwd": "C:\\Users\\souka\\OneDrive\\Desktop\\Phieu-Viet\\Phieu-Viet",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
+  }
+}
