@@ -437,7 +437,8 @@ const translations: Record<string, string> = {
   'The Underground Bunker': 'Hầm Chỉ huy Ngầm',
   'Explore the solid underground command bunker system and the secret escape route.': 'Khám phá hệ thống hầm chỉ huy ngầm kiên cố và lối thoát hiểm bí mật.',
   'The Fateful Moment': 'Khoảnh khắc Định mệnh',
-  'Find the red paint mark on the Palace roof and uncover the breathtaking historical moment it conceals.': 'Tìm vết sơn đỏ trên sân thượng Dinh và khám phá khoảnh khắc lịch sử nghẹt thở mà nó che giấu.'
+  'Find the red paint mark on the Palace roof and uncover the breathtaking historical moment it conceals.': 'Tìm vết sơn đỏ trên sân thượng Dinh và khám phá khoảnh khắc lịch sử nghẹt thở mà nó che giấu.',
+  'Light → Earth → Flour': 'Ánh sáng → Đất → Bột gạo'
 };
 
 const reverseTranslations = Object.fromEntries(Object.entries(translations).map(([english, vietnamese]) => [vietnamese, english]));
