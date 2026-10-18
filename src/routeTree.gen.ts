@@ -15,13 +15,16 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DesignerRouteImport } from './routes/designer'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as JourneysRouteImport } from './routes/journeys'
+import { Route as MvpRouteImport } from './routes/mvp'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PassportRouteImport } from './routes/passport'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as RewardsRouteImport } from './routes/rewards'
+import { Route as VetNangNamThangRouteImport } from './routes/vet-nang-nam-thang'
 import { Route as BookStationIdRouteImport } from './routes/book.$stationId'
 import { Route as ChallengeStationIdRouteImport } from './routes/challenge.$stationId'
+import { Route as PlayStationIdRouteImport } from './routes/play.$stationId'
 import { Route as QuizStationIdRouteImport } from './routes/quiz.$stationId'
 import { Route as StoriesIndexRouteImport } from './routes/stories.index'
 import { Route as StoriesStationIdRouteImport } from './routes/stories.$stationId'
@@ -58,6 +61,11 @@ const JourneysRoute = JourneysRouteImport.update({
   path: '/journeys',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MvpRoute = MvpRouteImport.update({
+  id: '/mvp',
+  path: '/mvp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PartnerRoute = PartnerRouteImport.update({
   id: '/partner',
   path: '/partner',
@@ -83,6 +91,11 @@ const RewardsRoute = RewardsRouteImport.update({
   path: '/rewards',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VetNangNamThangRoute = VetNangNamThangRouteImport.update({
+  id: '/vet-nang-nam-thang',
+  path: '/vet-nang-nam-thang',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookStationIdRoute = BookStationIdRouteImport.update({
   id: '/book/$stationId',
   path: '/book/$stationId',
@@ -91,6 +104,11 @@ const BookStationIdRoute = BookStationIdRouteImport.update({
 const ChallengeStationIdRoute = ChallengeStationIdRouteImport.update({
   id: '/challenge/$stationId',
   path: '/challenge/$stationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlayStationIdRoute = PlayStationIdRouteImport.update({
+  id: '/play/$stationId',
+  path: '/play/$stationId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuizStationIdRoute = QuizStationIdRouteImport.update({
@@ -126,13 +144,16 @@ export interface FileRoutesByFullPath {
   '/designer': typeof DesignerRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/mvp': typeof MvpRoute
   '/partner': typeof PartnerRoute
   '/passport': typeof PassportRoute
   '/profile': typeof ProfileRoute
   '/reviews': typeof ReviewsRoute
   '/rewards': typeof RewardsRoute
+  '/vet-nang-nam-thang': typeof VetNangNamThangRoute
   '/book/$stationId': typeof BookStationIdRoute
   '/challenge/$stationId': typeof ChallengeStationIdRoute
+  '/play/$stationId': typeof PlayStationIdRoute
   '/quiz/$stationId': typeof QuizStationIdRoute
   '/stories/$stationId': typeof StoriesStationIdRoute
   '/ticket/$bookingId': typeof TicketBookingIdRoute
@@ -146,13 +167,16 @@ export interface FileRoutesByTo {
   '/designer': typeof DesignerRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/mvp': typeof MvpRoute
   '/partner': typeof PartnerRoute
   '/passport': typeof PassportRoute
   '/profile': typeof ProfileRoute
   '/reviews': typeof ReviewsRoute
   '/rewards': typeof RewardsRoute
+  '/vet-nang-nam-thang': typeof VetNangNamThangRoute
   '/book/$stationId': typeof BookStationIdRoute
   '/challenge/$stationId': typeof ChallengeStationIdRoute
+  '/play/$stationId': typeof PlayStationIdRoute
   '/quiz/$stationId': typeof QuizStationIdRoute
   '/stories/$stationId': typeof StoriesStationIdRoute
   '/ticket/$bookingId': typeof TicketBookingIdRoute
@@ -167,13 +191,16 @@ export interface FileRoutesById {
   '/designer': typeof DesignerRoute
   '/discover': typeof DiscoverRoute
   '/journeys': typeof JourneysRoute
+  '/mvp': typeof MvpRoute
   '/partner': typeof PartnerRoute
   '/passport': typeof PassportRoute
   '/profile': typeof ProfileRoute
   '/reviews': typeof ReviewsRoute
   '/rewards': typeof RewardsRoute
+  '/vet-nang-nam-thang': typeof VetNangNamThangRoute
   '/book/$stationId': typeof BookStationIdRoute
   '/challenge/$stationId': typeof ChallengeStationIdRoute
+  '/play/$stationId': typeof PlayStationIdRoute
   '/quiz/$stationId': typeof QuizStationIdRoute
   '/stories/$stationId': typeof StoriesStationIdRoute
   '/ticket/$bookingId': typeof TicketBookingIdRoute
@@ -189,13 +216,16 @@ export interface FileRouteTypes {
     | '/designer'
     | '/discover'
     | '/journeys'
+    | '/mvp'
     | '/partner'
     | '/passport'
     | '/profile'
     | '/reviews'
     | '/rewards'
+    | '/vet-nang-nam-thang'
     | '/book/$stationId'
     | '/challenge/$stationId'
+    | '/play/$stationId'
     | '/quiz/$stationId'
     | '/stories/$stationId'
     | '/ticket/$bookingId'
@@ -209,13 +239,16 @@ export interface FileRouteTypes {
     | '/designer'
     | '/discover'
     | '/journeys'
+    | '/mvp'
     | '/partner'
     | '/passport'
     | '/profile'
     | '/reviews'
     | '/rewards'
+    | '/vet-nang-nam-thang'
     | '/book/$stationId'
     | '/challenge/$stationId'
+    | '/play/$stationId'
     | '/quiz/$stationId'
     | '/stories/$stationId'
     | '/ticket/$bookingId'
@@ -229,13 +262,16 @@ export interface FileRouteTypes {
     | '/designer'
     | '/discover'
     | '/journeys'
+    | '/mvp'
     | '/partner'
     | '/passport'
     | '/profile'
     | '/reviews'
     | '/rewards'
+    | '/vet-nang-nam-thang'
     | '/book/$stationId'
     | '/challenge/$stationId'
+    | '/play/$stationId'
     | '/quiz/$stationId'
     | '/stories/$stationId'
     | '/ticket/$bookingId'
@@ -250,13 +286,16 @@ export interface RootRouteChildren {
   DesignerRoute: typeof DesignerRoute
   DiscoverRoute: typeof DiscoverRoute
   JourneysRoute: typeof JourneysRoute
+  MvpRoute: typeof MvpRoute
   PartnerRoute: typeof PartnerRoute
   PassportRoute: typeof PassportRoute
   ProfileRoute: typeof ProfileRoute
   ReviewsRoute: typeof ReviewsRoute
   RewardsRoute: typeof RewardsRoute
+  VetNangNamThangRoute: typeof VetNangNamThangRoute
   BookStationIdRoute: typeof BookStationIdRoute
   ChallengeStationIdRoute: typeof ChallengeStationIdRoute
+  PlayStationIdRoute: typeof PlayStationIdRoute
   QuizStationIdRoute: typeof QuizStationIdRoute
   StoriesStationIdRoute: typeof StoriesStationIdRoute
   TicketBookingIdRoute: typeof TicketBookingIdRoute
@@ -308,6 +347,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JourneysRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mvp': {
+      id: '/mvp'
+      path: '/mvp'
+      fullPath: '/mvp'
+      preLoaderRoute: typeof MvpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/partner': {
       id: '/partner'
       path: '/partner'
@@ -343,6 +389,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RewardsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vet-nang-nam-thang': {
+      id: '/vet-nang-nam-thang'
+      path: '/vet-nang-nam-thang'
+      fullPath: '/vet-nang-nam-thang'
+      preLoaderRoute: typeof VetNangNamThangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/book/$stationId': {
       id: '/book/$stationId'
       path: '/book/$stationId'
@@ -355,6 +408,13 @@ declare module '@tanstack/react-router' {
       path: '/challenge/$stationId'
       fullPath: '/challenge/$stationId'
       preLoaderRoute: typeof ChallengeStationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/play/$stationId': {
+      id: '/play/$stationId'
+      path: '/play/$stationId'
+      fullPath: '/play/$stationId'
+      preLoaderRoute: typeof PlayStationIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz/$stationId': {
@@ -402,13 +462,16 @@ const rootRouteChildren: RootRouteChildren = {
   DesignerRoute: DesignerRoute,
   DiscoverRoute: DiscoverRoute,
   JourneysRoute: JourneysRoute,
+  MvpRoute: MvpRoute,
   PartnerRoute: PartnerRoute,
   PassportRoute: PassportRoute,
   ProfileRoute: ProfileRoute,
   ReviewsRoute: ReviewsRoute,
   RewardsRoute: RewardsRoute,
+  VetNangNamThangRoute: VetNangNamThangRoute,
   BookStationIdRoute: BookStationIdRoute,
   ChallengeStationIdRoute: ChallengeStationIdRoute,
+  PlayStationIdRoute: PlayStationIdRoute,
   QuizStationIdRoute: QuizStationIdRoute,
   StoriesStationIdRoute: StoriesStationIdRoute,
   TicketBookingIdRoute: TicketBookingIdRoute,

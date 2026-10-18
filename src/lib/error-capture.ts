@@ -56,10 +56,17 @@ const originalConsoleError = console.error.bind(console);
 console.error = (...args: unknown[]) => {
   const expanded = args.map((arg) => {
     if (!isErrorLike(arg)) return arg;
+    // Swallow benign "Error: aborted" — this is just the browser closing the
+    // TCP connection before SSR finishes (fast nav / HMR). Not a real error.
+    const msg = (arg as Error).message?.toLowerCase() ?? "";
+    if (msg === "aborted" || msg.includes("connection reset") || msg.includes("write after end")) {
+      return null; // will be filtered below
+    }
     record(arg);
     return describeError(arg);
   });
-  originalConsoleError(...expanded);
+  const filtered = expanded.filter((a) => a !== null);
+  if (filtered.length > 0) originalConsoleError(...filtered);
 };
 
 if (typeof globalThis.addEventListener === "function") {

@@ -1,7 +1,7 @@
 import "./lib/error-capture";
 
-import { consumeLastCapturedError } from "./lib/error-capture";
-import { renderErrorPage } from "./lib/error-page";
+import { consumeLastCapturedError } from "@/lib/error-capture";
+import { renderErrorPage } from "@/lib/error-page";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -44,6 +44,15 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+/** True for "Error: aborted" — the browser closed the TCP connection before
+ *  the SSR stream finished. This is normal during fast navigation / HMR and
+ *  is NOT an application error, so we swallow it silently. */
+function isAbortError(error: unknown): boolean {
+  if (!(error instanceof Error)) return false;
+  const msg = error.message?.toLowerCase() ?? "";
+  return msg === "aborted" || msg.includes("connection reset") || msg.includes("write after end");
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
@@ -51,6 +60,10 @@ export default {
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
+      if (isAbortError(error)) {
+        // Client disconnected mid-stream — silently return a minimal response
+        return new Response(null, { status: 499 });
+      }
       console.error(error);
       return new Response(renderErrorPage(), {
         status: 500,

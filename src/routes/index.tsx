@@ -1,88 +1,442 @@
-import { useState, useEffect } from 'react';
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowRight, BookOpen, Compass, Gift, MapPin, QrCode, Sparkles, Stamp, Star } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { StationCard } from '@/components/site/StationCard';
-import { useLanguage } from '@/components/site/LanguageContext';
-import { stations } from '@/lib/journey';
-import { pageHead } from '@/lib/meta';
-import hero from '@/assets/hero-lanterns.jpg';
-import lantern from '@/assets/craft-lantern.jpg';
-import piggy from '@/assets/craft-piggy.jpg';
-import tohe from '@/assets/craft-tohe.jpg';
-import image from '@/assets/image.jpg';
-import image1 from '@/assets/image1.jpg';
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
+import { ArrowRight, Compass, Palette, BookOpen, Search, Star, QrCode, Gift } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useTranslation } from "react-i18next";
+import { pageHead } from "@/lib/meta";
+import hero from "@/assets/hero-lanterns.jpg";
+import lantern from "@/assets/craft-lantern.jpg";
+import st1 from "@/assets/st1.png";
+import st2 from "@/assets/st2.png";
+import st3 from "@/assets/st3.png";
+import st4 from "@/assets/st4.png";
+import vt1 from "@/assets/vt1.png";
+import vt2 from "@/assets/vt2.png";
+import vt3 from "@/assets/vt3.png";
 
-export const Route = createFileRoute('/')({ head: () => pageHead('Cultural journeys', 'Rediscover memories and reconnect with authentic Vietnamese heritage through stories, craft villages, and cultural experiences.'), component: Home });
+export const Route = createFileRoute("/")({
+  head: () => pageHead("Trang chủ", "Phiêu lưu giữa những câu chuyện văn hóa Việt."),
+  component: Home,
+});
 
 function Home() {
-  const { language } = useLanguage();
-  const isVietnamese = language === 'vi';
-  const featuredStations = stations.slice(0, 3);
-  
-  const slideshowImages = [lantern, piggy, tohe, hero, image, image1];
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length);
-    }, 2500);
-    return () => clearInterval(timer);
-  }, [slideshowImages.length]);
-
-  const copy = isVietnamese ? {
-    eyebrow: 'Hành trình qua di sản Việt Nam',
-    intro: 'Tìm lại ký ức, chạm vào nguyên bản.',
-    begin: 'Bắt đầu hành trình',
-    explore: 'Khám phá câu chuyện',
-    behind: 'Câu chuyện phía sau hành trình',
-    behindTitle: 'Có những ký ức cần được sống lại.',
-    behindText: 'Một chiếc đèn lồng sáng trong đêm. Những đồng tiền đầu tiên trong chú heo đất. Một hình hài nhỏ được nặn bằng tay. Phiêu Việt đưa bạn đến những xưởng nghề, câu chuyện và con người đang gìn giữ ký tự tuổi thơ.',
-    ourStory: 'Câu chuyện của chúng tôi',
-    featured: 'Trải nghiệm được tuyển chọn',
-    discoverAll: 'Khám phá tất cả',
-    journeyTitle: 'Ánh sáng. Đất. Bột gạo.',
-    journeyText: 'Theo những mạch ký ức tuổi thơ qua ba truyền thống sống động.',
-    seeJourney: 'Xem hành trình',
-  } : {
-    eyebrow: 'A journey through Vietnamese heritage',
-    intro: 'Rediscover memories in the places where they were made.',
-    begin: 'Begin the Journey',
-    explore: 'Explore the Stories',
-    behind: 'The story behind the journey',
-    behindTitle: 'Some memories are meant to be lived again.',
-    behindText: 'A lantern glowing in the night. The first coins in a clay piggy bank. A tiny figure shaped by hand. Phiêu Việt takes you beyond the screen and into the workshops, stories, and people keeping childhood traditions alive.',
-    ourStory: 'Our story',
-    featured: 'Curated for the curious',
-    discoverAll: 'Discover all',
-    journeyTitle: 'Light. Earth. Flour.',
-    journeyText: 'Follow the threads of childhood through three living traditions.',
-    seeJourney: 'See the journey',
+  const [searchQuery, setSearchQuery] = useState("");
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const query = searchQuery.trim();
+    navigate({
+      to: "/discover",
+      search: query ? { q: query } : {},
+    });
   };
 
-  return <main className="page-enter">
-  <section className="relative flex min-h-[610px] items-center overflow-hidden bg-deep text-primary-foreground lg:min-h-[690px]">
-    <img src={hero} alt="Lanterns and an artisan at a Vietnamese craft village" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover object-center" />
-    <div className="hero-shade absolute inset-0" /><div className="section-wrap motion-stagger relative z-10 py-24">
-      <div className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[.25em] text-gold"><span className="h-px w-10 bg-gold"/> {copy.eyebrow}</div>
-      <h1 className="max-w-[820px] font-display text-5xl leading-[1.16] font-medium sm:text-6xl lg:text-[84px]">Vệt nắng<br/>năm tháng</h1>
-      <p className="mt-4 font-display text-2xl italic sm:text-4xl">{isVietnamese ? 'Mảnh ghép tuổi thơ' : 'Fragments of childhood'}</p><p className="mt-7 max-w-lg text-base leading-8 opacity-90">{copy.intro}</p>
-      <div className="mt-9 flex flex-wrap gap-3"><Button asChild variant="hero" size="hero"><Link to="/discover">{copy.begin} <ArrowRight/></Link></Button><Button asChild variant="heroOutline" size="hero"><Link to="/stories">{copy.explore}</Link></Button></div>
-    </div><div className="absolute bottom-6 right-6 hidden text-xs font-semibold uppercase tracking-[.22em] text-primary-foreground/80 sm:block">01 / 03 &nbsp; · &nbsp; Light · Earth · Flour</div>
-  </section>
-  <section className="paper-grain bg-background py-20 sm:py-28"><div className="section-wrap grid items-center gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><div><p className="eyebrow">The story behind the journey</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">Some memories are meant to be lived again.</h2></div><div className="border-l-2 border-gold pl-7"><p className="text-base leading-8 text-muted-foreground">A lantern glowing in the night. The first coins in a clay piggy bank. A tiny figure shaped by hand. Phiêu Việt takes you beyond the screen and into the workshops, stories, and people keeping childhood traditions alive.</p><Link to="/about" className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">Our story <ArrowRight size={16}/></Link></div></div></section>
-  <section className="bg-warm py-20 sm:py-28"><div className="section-wrap"><div className="flex flex-wrap items-end justify-between gap-8"><div><p className="eyebrow">One journey · Three memories</p><h2 className="mt-4 font-display text-4xl sm:text-5xl">Light. Earth. Flour.</h2><p className="mt-4 max-w-xl text-muted-foreground">Follow the threads of childhood through three living traditions.</p></div><Link to="/journeys" className="neu-press inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">See the journey <ArrowRight size={16}/></Link></div><div className="motion-stagger mt-12 grid gap-5 md:grid-cols-3">{featuredStations.map(station => <Link key={station.id} to="/stories/$stationId" params={{ stationId: station.id }} className="image-float group relative aspect-[4/5] overflow-hidden"><img src={station.image} alt={station.name} width={1008} height={752} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/><div className="dark-shade absolute inset-0"/><div className="absolute inset-x-0 bottom-0 p-7 text-primary-foreground"><span className="text-xs font-semibold uppercase tracking-[.2em] text-gold">Chapter {station.number} / {station.theme}</span><h3 className="mt-2 font-display text-3xl">{station.name}</h3><p className="mt-2 text-sm opacity-85">{station.teaser}</p><ArrowRight className="mt-5" size={20}/></div></Link>)}</div></div></section>
-  <section className="bg-background py-20 sm:py-28"><div className="section-wrap"><div className="flex items-end justify-between gap-6"><div><p className="eyebrow">Curated for the curious</p><h2 className="mt-4 font-display text-4xl sm:text-5xl">Featured experiences</h2></div><Button asChild variant="editorial"><Link to="/discover">Discover all <ArrowRight/></Link></Button></div><div className="mt-10 grid gap-6 md:grid-cols-3">{featuredStations.map(station => <StationCard key={station.id} station={station}/>)}</div></div></section>
-  <section className="bg-deep py-20 text-primary-foreground sm:py-28"><div className="section-wrap"><div className="text-center"><p className="eyebrow !text-gold">Your story starts here</p><h2 className="mt-4 font-display text-4xl sm:text-5xl">The journey is yours to make.</h2></div><div className="mt-14 grid gap-10 md:grid-cols-4">{([[Compass,'01','Discover','Find the places and stories that call to you.'],[BookOpen,'02','Read & book','Get to know the craft, then reserve your place.'],[QrCode,'03','Visit & unlock','Follow the clues at the destination and reveal more.'],[Gift,'04','Keep the memory','Collect a piece of the journey in your Việt Ký.']] as const).map(([Icon,n,title,copy]) => <div key={n} className="border-t border-gold/60 pt-6"><Icon size={25} className="text-gold"/><span className="mt-8 block text-xs tracking-widest text-gold">{n} / 04</span><h3 className="mt-2 font-display text-2xl">{title}</h3><p className="mt-3 text-sm leading-7 opacity-70">{copy}</p></div>)}</div></div></section>
-  <section className="paper-grain bg-background py-20 sm:py-28"><div className="section-wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-24"><div><p className="eyebrow">A collection of moments</p><h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">Every place leaves a little piece of itself with you.</h2><p className="mt-6 max-w-lg leading-8 text-muted-foreground">Collect memory pieces and digital stamps as you explore. Your Việt Ký is a living record of where you've been and what you've felt.</p><Button asChild className="mt-8" variant="editorial"><Link to="/passport">Open your Việt Ký <ArrowRight/></Link></Button></div><div className="relative mx-auto w-full max-w-md border border-gold bg-card p-5 shadow-xl sm:p-8"><div className="border border-gold p-6 sm:p-9"><span className="eyebrow">Cultural passport · No. 001</span><h3 className="mt-5 font-display text-4xl text-primary">Việt Ký</h3><p className="mt-1 text-sm text-muted-foreground">Your cultural journey</p><div className="my-8 h-px bg-border"/><div className="flex flex-wrap gap-3 justify-center">{featuredStations.map(s => <div key={s.id} className="stamp flex aspect-square flex-col items-center justify-center text-center text-gold w-16 sm:w-20"><Stamp size={20}/><span className="mt-2 text-[10px] font-bold uppercase tracking-widest">{s.theme}</span></div>)}</div><p className="mt-8 text-center text-xs uppercase tracking-widest text-muted-foreground">The stories you take with you</p></div></div></div></section>
-  <section className="bg-secondary py-20 sm:py-24"><div className="section-wrap flex flex-col items-start justify-between gap-8 md:flex-row md:items-center"><div><p className="eyebrow">Made around you</p><h2 className="mt-3 font-display text-4xl">Not sure where to begin?</h2><p className="mt-4 text-muted-foreground">Tell us what you love. We’ll sketch a cultural journey just for you.</p></div><Button asChild size="hero"><Link to="/designer"><Sparkles/> Design your journey</Link></Button></div></section>
-  <section className="bg-warm py-20 sm:py-28"><div className="section-wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-    <div className="image-float relative aspect-[5/4] w-full overflow-hidden bg-black/5">
-      {slideshowImages.map((src, index) => (
-        <img key={index} src={src} alt="Heritage artisan at work" width={1008} height={752} loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}/>
-      ))}
-    </div>
-    <div><p className="eyebrow">The hands behind the heritage</p><h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">Meet the makers who keep stories alive.</h2><p className="mt-6 leading-8 text-muted-foreground">At every stop, a local artisan welcomes you into a craft passed through generations. More than an activity, it is a chance to listen, learn, and make something worth keeping.</p><Button asChild variant="editorial" className="mt-8"><Link to="/about">Meet Phiêu Việt <ArrowRight/></Link></Button></div></div></section>
-  <section className="bg-background py-20 sm:py-24"><div className="section-wrap text-center"><p className="eyebrow">Words from the journey</p><div className="mt-6 flex justify-center gap-1 text-gold">{Array.from({length:5}).map((_,i) => <Star key={i} size={17} fill="currentColor"/>)}</div><blockquote className="mx-auto mt-7 max-w-3xl font-display text-2xl leading-relaxed italic sm:text-3xl">“The loveliest part was sitting with the maker and hearing how a simple lantern carried so many memories.”</blockquote><p className="mt-7 text-xs font-semibold uppercase tracking-widest text-muted-foreground">A journey worth remembering</p></div></section>
-  <section className="bg-primary py-20 text-center text-primary-foreground sm:py-28"><div className="section-wrap"><p className="text-deep text-xs font-bold uppercase tracking-[.25em]">Your story is still unfolding</p><h2 className="mt-4 font-display text-4xl sm:text-6xl">Your next memory is waiting.</h2><p className="mx-auto mt-5 max-w-xl leading-8 opacity-85">Step beyond the screen. Meet the people, places, crafts and stories that make Vietnamese heritage unforgettable.</p><Button asChild variant="heroOutline" size="hero" className="mt-9"><Link to="/discover">Begin Your Journey <ArrowRight/></Link></Button></div></section>
-</main>; }
+  return (
+    <main className="page-enter">
+      {/* SECTION 1 - HERO */}
+      <section className="relative flex min-h-[610px] items-center overflow-hidden bg-deep text-primary-foreground lg:min-h-[690px]">
+        <img
+          src={hero}
+          alt="Vietnam heritage"
+          width={1600}
+          height={1008}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="hero-shade absolute inset-0" />
+        <div className="section-wrap relative z-10 py-24 w-full flex flex-col items-center text-center">
+          <h1 className="font-display text-7xl sm:text-[100px] font-bold tracking-widest drop-shadow-lg mb-2">
+            PHIÊU VIỆT
+          </h1>
+          <p className="mt-4 font-sans text-3xl sm:text-5xl font-semibold drop-shadow-md">
+            {t("Phiêu lưu giữa những câu chuyện văn hóa Việt.")}
+          </p>
+          <p className="mt-6 text-lg sm:text-xl max-w-2xl opacity-90 drop-shadow-md">
+            {t("Mỗi điểm đến mở ra một câu chuyện văn hóa đang chờ bạn khám phá.")}
+          </p>
+
+          <form
+            onSubmit={handleSearch}
+            className="mt-12 w-full max-w-3xl bg-transparent border border-white/30 backdrop-blur-md rounded-full p-2 flex items-center shadow-2xl relative"
+          >
+            <Search className="w-6 h-6 text-white/80 ml-6 mr-4" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={t("Tìm địa điểm, làng nghề, bảo tàng hoặc trải nghiệm...")}
+              className="flex-1 !bg-transparent !border-none !shadow-none text-white placeholder:text-white/70 h-14 text-lg focus:outline-none focus:ring-0 min-w-0"
+            />
+            <button
+              type="submit"
+              className="w-14 h-14 bg-[#D48A76] hover:bg-[#D48A76]/90 transition-colors rounded-full flex items-center justify-center shadow-md ml-2 flex-shrink-0"
+            >
+              <ArrowRight className="text-white w-6 h-6" />
+            </button>
+          </form>
+          <div className="mt-6 flex flex-wrap justify-center items-center gap-2 text-sm sm:text-base opacity-90">
+            <span>{t("Gợi ý:")}</span>
+            <Link
+              to="/discover"
+              search={{ q: "Làng lồng đèn" }}
+              className="hover:text-gold transition-colors"
+            >
+              {t("Làng lồng đèn")}
+            </Link>
+            <span>&middot;</span>
+            <Link
+              to="/discover"
+              search={{ q: "Gốm" }}
+              className="hover:text-gold transition-colors"
+            >
+              {t("Gốm")}
+            </Link>
+            <span>&middot;</span>
+            <Link
+              to="/discover"
+              search={{ q: "Bảo tàng" }}
+              className="hover:text-gold transition-colors"
+            >
+              {t("Bảo tàng")}
+            </Link>
+            <span>&middot;</span>
+            <Link
+              to="/discover"
+              search={{ q: "Workshop" }}
+              className="hover:text-gold transition-colors"
+            >
+              Workshop
+            </Link>
+            <span>&middot;</span>
+            <Link
+              to="/discover"
+              search={{ q: "Nghệ nhân" }}
+              className="hover:text-gold transition-colors"
+            >
+              {t("Nghệ nhân")}
+            </Link>
+          </div>
+
+          <div className="mt-12 flex flex-col sm:flex-row gap-6">
+            <Button
+              asChild
+              className="bg-[#D48A76] hover:bg-[#D48A76]/90 text-white rounded-full px-10 py-7 text-xl font-medium shadow-lg transition-transform hover:scale-105"
+            >
+              <Link to="/discover">
+                Explore ngay <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="bg-transparent border-white text-white hover:bg-white/10 rounded-full px-10 py-7 text-xl font-medium shadow-lg transition-transform hover:scale-105"
+            >
+              <Link to="/passport">
+                <BookOpen className="mr-3 w-5 h-5" /> See the journey
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="default"
+              className="bg-gold text-deep hover:bg-gold/90 rounded-full px-10 py-7 text-xl font-bold shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-transform hover:scale-105"
+            >
+              <Link to="/mvp">
+                Trải nghiệm MVP <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2 - PHIÊU VIỆT CÓ GÌ? */}
+      <section className="bg-[#FFFDF9] py-20 sm:py-28">
+        <div className="section-wrap text-center">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-[1px] w-12 bg-gold/50"></div>
+            <Star className="text-gold w-5 h-5 fill-gold" />
+            <div className="h-[1px] w-12 bg-gold/50"></div>
+          </div>
+          <h2 className="font-display text-4xl sm:text-5xl text-[#8C271E] font-bold">
+            {t("Phiêu Việt có gì?")}
+          </h2>
+          <p className="mt-4 text-xl text-muted-foreground">
+            {t("Bạn có thể chọn cách khám phá phù hợp với mình.")}
+          </p>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-3 text-left max-w-6xl mx-auto">
+            <div className="bg-[#FFFDF9] rounded-2xl border border-gold/20 p-8 flex flex-col shadow-sm hover:shadow-md hover:border-gold/40 transition-all group">
+              <div className="h-56 w-full rounded-xl mb-6 flex items-center justify-center overflow-hidden">
+                <img
+                  src={vt1}
+                  alt="Điểm khám phá"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                />
+              </div>
+              <h3 className="font-display text-2xl mb-3 text-[#8C271E]">{t("Điểm khám phá")}</h3>
+              <p className="text-muted-foreground leading-relaxed flex-grow mb-8">
+                {t("Làng nghề, bảo tàng, di tích và những không gian văn hóa.")}
+              </p>
+              <Link
+                to="/discover"
+                className="text-[#8C271E] font-semibold text-sm flex items-center gap-2 hover:text-gold transition-colors tracking-widest uppercase"
+              >
+                <ArrowRight className="w-4 h-4" /> {t("Khám phá")}
+              </Link>
+            </div>
+
+            <div className="bg-[#FFFDF9] rounded-2xl border border-gold/20 p-8 flex flex-col shadow-sm hover:shadow-md hover:border-gold/40 transition-all group">
+              <div className="h-56 w-full rounded-xl mb-6 flex items-center justify-center overflow-hidden">
+                <img
+                  src={vt2}
+                  alt="Hoạt động trải nghiệm"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                />
+              </div>
+              <h3 className="font-display text-2xl mb-3 text-[#8C271E]">
+                {t("Hoạt động trải nghiệm")}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed flex-grow mb-8">
+                {t("Thử làm, thử học và gặp gỡ những người đang giữ nghề.")}
+              </p>
+              <Link
+                to="/discover"
+                className="text-[#8C271E] font-semibold text-sm flex items-center gap-2 hover:text-gold transition-colors tracking-widest uppercase"
+              >
+                <ArrowRight className="w-4 h-4" /> {t("Khám phá")}
+              </Link>
+            </div>
+
+            <div className="bg-[#FFFDF9] rounded-2xl border border-gold/20 p-8 flex flex-col shadow-sm hover:shadow-md hover:border-gold/40 transition-all group">
+              <div className="h-56 w-full rounded-xl mb-6 flex items-center justify-center overflow-hidden bg-[#F5EBE1]">
+                <img
+                  src={vt3}
+                  alt="Việt Ký"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 mix-blend-multiply"
+                />
+              </div>
+              <h3 className="font-display text-2xl mb-3 text-[#8C271E]">{t("Việt Ký")}</h3>
+              <p className="text-muted-foreground leading-relaxed flex-grow mb-8">
+                {t("Nhiều điểm đến được nối lại bằng một câu chuyện chung.")}
+              </p>
+              <Link
+                to="/journeys"
+                className="text-[#8C271E] font-semibold text-sm flex items-center gap-2 hover:text-gold transition-colors tracking-widest uppercase"
+              >
+                <ArrowRight className="w-4 h-4" /> {t("Việt Ký")}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3 - HÀNH TRÌNH VIỆT KÝ NỔI BẬT */}
+      <section className="bg-warm py-20 sm:py-28 border-t border-border/50">
+        <div className="section-wrap grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="eyebrow !text-gold mb-4">{t("Hành trình Việt Ký nổi bật")}</p>
+            <h2 className="font-display text-4xl sm:text-5xl mb-4">{t("Vệt Nắng Năm Tháng")}</h2>
+            <p className="font-display text-2xl text-primary/80 mb-6">{t("Mảnh Ghép Tuổi Thơ")}</p>
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+              {t("Một bức tranh ký ức đang chờ được hoàn thiện.")}
+            </p>
+            <Button asChild size="lg" className="px-8 text-lg">
+              <Link to="/vet-nang-nam-thang">
+                {t("Khám phá bộ sưu tập")} <ArrowRight className="ml-2" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 aspect-square max-w-md mx-auto w-full group/grid cursor-pointer">
+            <Link
+              to="/vet-nang-nam-thang"
+              className="relative overflow-hidden bg-card/40 border border-gold/20 flex flex-col items-center justify-center p-4 rounded-tl-2xl hover:z-10 hover:scale-105 hover:rotate-2 hover:shadow-2xl transition-all duration-300"
+            >
+              <img src={st1} className="absolute inset-0 w-full h-full object-cover opacity-80" />
+              <div className="absolute inset-0 bg-deep/40 mix-blend-multiply" />
+              <span className="relative z-10 font-bold text-sm uppercase drop-shadow-md text-white">
+                {t("Ánh sáng")}
+              </span>
+            </Link>
+            <Link
+              to="/vet-nang-nam-thang"
+              className="relative overflow-hidden bg-card/40 border border-gold/20 flex flex-col items-center justify-center p-4 rounded-tr-2xl hover:z-10 hover:scale-105 hover:-rotate-2 hover:shadow-2xl transition-all duration-300"
+            >
+              <img src={st2} className="absolute inset-0 w-full h-full object-cover opacity-80" />
+              <div className="absolute inset-0 bg-deep/40 mix-blend-multiply" />
+              <span className="relative z-10 font-bold text-sm uppercase drop-shadow-md text-white">
+                {t("Hình hài")}
+              </span>
+            </Link>
+            <Link
+              to="/vet-nang-nam-thang"
+              className="relative overflow-hidden bg-card/40 border border-gold/20 flex flex-col items-center justify-center p-4 rounded-bl-2xl hover:z-10 hover:scale-105 hover:-rotate-2 hover:shadow-2xl transition-all duration-300"
+            >
+              <img src={st3} className="absolute inset-0 w-full h-full object-cover opacity-80" />
+              <div className="absolute inset-0 bg-deep/40 mix-blend-multiply" />
+              <span className="relative z-10 font-bold text-sm uppercase drop-shadow-md text-white">
+                {t("Sắc màu")}
+              </span>
+            </Link>
+            <Link
+              to="/vet-nang-nam-thang"
+              className="relative overflow-hidden bg-card/40 border border-gold/20 flex flex-col items-center justify-center p-4 rounded-br-2xl hover:z-10 hover:scale-105 hover:rotate-2 hover:shadow-2xl transition-all duration-300"
+            >
+              <img src={st4} className="absolute inset-0 w-full h-full object-cover opacity-80" />
+              <div className="absolute inset-0 bg-deep/40 mix-blend-multiply" />
+              <span className="relative z-10 font-bold text-sm uppercase text-center drop-shadow-md text-white">
+                {t("Ký ức của chính bạn")}
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4 - HÀNH TRÌNH NÀY LÀ CỦA BẠN */}
+      <section className="bg-[#2D1615] text-white py-24 sm:py-32">
+        <div className="section-wrap max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16 sm:mb-24">
+            <p className="text-gold font-bold tracking-widest uppercase text-sm mb-4">
+              {t("CÂU CHUYỆN CỦA BẠN BẮT ĐẦU TỪ ĐÂY")}
+            </p>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide">
+              {t("Hành trình này là của bạn.")}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+            <div className="flex flex-col items-start border-t border-white/10 pt-8">
+              <Compass className="text-gold w-7 h-7 mb-8" strokeWidth={1.5} />
+              <p className="text-gold text-xs font-semibold mb-3 tracking-widest">01 / 04</p>
+              <h3 className="font-display text-2xl mb-4 tracking-wide">{t("Khám phá")}</h3>
+              <p className="text-white/70 leading-relaxed text-sm">
+                {t("Tìm địa điểm, hoạt động hoặc bộ sưu tập mà bạn muốn trải nghiệm.")}
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start border-t border-white/10 pt-8">
+              <BookOpen className="text-gold w-7 h-7 mb-8" strokeWidth={1.5} />
+              <p className="text-gold text-xs font-semibold mb-3 tracking-widest">02 / 04</p>
+              <h3 className="font-display text-2xl mb-4 tracking-wide">{t("Chọn và chuẩn bị")}</h3>
+              <p className="text-white/70 leading-relaxed text-sm">
+                {t("Xem thông tin, thời gian và đặt chỗ nếu hoạt động yêu cầu đăng ký trước.")}
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start border-t border-white/10 pt-8">
+              <QrCode className="text-gold w-7 h-7 mb-8" strokeWidth={1.5} />
+              <p className="text-gold text-xs font-semibold mb-3 tracking-widest">03 / 04</p>
+              <h3 className="font-display text-2xl mb-4 tracking-wide">
+                {t("Trải nghiệm và hoàn thành thử thách")}
+              </h3>
+              <p className="text-white/70 leading-relaxed text-sm">
+                {t("Đến địa điểm, tìm hiểu câu chuyện, nhận manh mối và hoàn thành nhiệm vụ.")}
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start border-t border-white/10 pt-8">
+              <Gift className="text-gold w-7 h-7 mb-8" strokeWidth={1.5} />
+              <p className="text-gold text-xs font-semibold mb-3 tracking-widest">04 / 04</p>
+              <h3 className="font-display text-2xl mb-4 tracking-wide">
+                {t("Lưu lại trong Việt Ký")}
+              </h3>
+              <p className="text-white/70 leading-relaxed text-sm">
+                {t(
+                  "Mở khóa dấu hoặc mảnh ghép và tiếp tục khám phá những phần còn lại của bộ sưu tập.",
+                )}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-20 text-center">
+            <Button
+              asChild
+              className="bg-gold hover:bg-gold/90 text-[#2D1615] font-bold rounded-full px-12 py-7 text-sm tracking-widest uppercase shadow-lg transition-transform hover:scale-105"
+            >
+              <Link to="/discover">{t("BẮT ĐẦU KHÁM PHÁ")}</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5 - LỜI KỂ TỪ HÀNH TRÌNH */}
+      <section className="bg-[#FFFDF9] py-24 sm:py-32 border-t border-gold/20">
+        <div className="section-wrap max-w-7xl mx-auto px-6 text-center">
+          <p className="text-[#D48A76] font-bold tracking-widest uppercase text-xs mb-16">
+            {t("LỜI KỂ TỪ HÀNH TRÌNH")}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 text-center">
+            <div className="flex flex-col items-center">
+              <div className="flex gap-1 mb-8 text-gold">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-gold" />
+                ))}
+              </div>
+              <p className="font-display italic text-2xl sm:text-[26px] text-[#8C271E] leading-relaxed mb-8 flex-grow">
+                “Mình thích nhất là mỗi nơi không chỉ để ghé qua chụp hình, mà còn có câu chuyện và
+                nhiệm vụ để mình chú ý hơn đến những chi tiết xung quanh.”
+              </p>
+              <p className="text-muted-foreground text-sm tracking-widest uppercase font-semibold">
+                Ngọc Anh &middot; Sinh viên
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="flex gap-1 mb-8 text-gold">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-gold" />
+                ))}
+              </div>
+              <p className="font-display italic text-2xl sm:text-[26px] text-[#8C271E] leading-relaxed mb-8 flex-grow">
+                “Đi theo hành trình như vậy dễ hơn tự tìm từng chỗ riêng lẻ. Mình biết nên bắt đầu
+                từ đâu, đi tiếp chỗ nào và mỗi điểm đều có cái để nhớ.”
+              </p>
+              <p className="text-muted-foreground text-sm tracking-widest uppercase font-semibold">
+                Hoàng Minh &middot; Nhân viên văn phòng
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="flex gap-1 mb-8 text-gold">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-gold" />
+                ))}
+              </div>
+              <p className="font-display italic text-2xl sm:text-[26px] text-[#8C271E] leading-relaxed mb-8 flex-grow">
+                “Phần mình thấy thú vị nhất là mấy dấu và mảnh ghép trong Việt Ký. Hoàn thành xong
+                một điểm thì có cảm giác muốn đi tiếp cho đủ cả hành trình.”
+              </p>
+              <p className="text-muted-foreground text-sm tracking-widest uppercase font-semibold">
+                Thảo Vy &middot; Sinh viên
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+// Add a simple LockKeyhole icon component if lucide-react fails
+function LockKeyhole({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      <circle cx="12" cy="16" r="1" />
+    </svg>
+  );
+}

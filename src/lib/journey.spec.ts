@@ -1,10 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { getStation, money, stations } from "./journey";
+import { getStation, money, stations } from "@/lib/journey";
 
 describe("journey data", () => {
   it("keeps the three featured stations available", () => {
-    expect(stations).toHaveLength(3);
-    expect(stations.map((station) => station.id)).toEqual(["phu-binh", "tan-khanh", "to-he"]);
+    expect(stations).toHaveLength(5);
+    expect(stations.map((station) => station.id)).toEqual([
+      "phu-binh",
+      "tan-khanh",
+      "to-he",
+      "quang-san-art-museum",
+      "independence-palace",
+    ]);
   });
 
   it("finds a station by its shareable route id", () => {
