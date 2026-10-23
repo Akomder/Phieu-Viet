@@ -72,6 +72,4 @@ This tracking is implemented in `play.$stationId.tsx` and `mvp.tsx` using a fire
 * **[i18next](https://www.i18next.com/)** - Internationalization
 * **[Vite](https://vitejs.dev/)** - Frontend tooling
 
-## 📄 License
-
-This project is for presentation
+## This project is for presentation
