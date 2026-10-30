@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import videoCover from "@/assets/phieu-viet-video-cover.jpg";
 import {
   PlayCircle,
   Circle,
@@ -95,11 +96,11 @@ function MvpRoute() {
 
   return (
     <main className="min-h-[100dvh] bg-deep text-primary-foreground p-4 py-8 sm:p-8 flex justify-center items-start sm:items-center font-sans">
-      <div className="w-full max-w-xl bg-card text-card-foreground p-6 rounded-2xl shadow-2xl relative overflow-hidden">
+      <div className="relative w-full max-w-3xl min-w-0 overflow-hidden rounded-2xl bg-card p-4 text-card-foreground shadow-2xl sm:p-6 md:p-8">
         {step === "intro" && (
-          <div className="space-y-6 text-center animate-in fade-in zoom-in duration-500">
-            <h1 className="font-display text-3xl font-bold">Giới thiệu Việt Ký</h1>
-            <div className="relative aspect-video overflow-hidden rounded-lg border border-[#d8b991] bg-[#f3d9b6]">
+          <div className="min-w-0 space-y-5 text-center animate-in fade-in zoom-in duration-500 sm:space-y-6">
+            <h1 className="font-display text-2xl font-bold sm:text-3xl">Giới thiệu Việt Ký</h1>
+            <div className="relative aspect-[16/9] w-full min-w-0 overflow-hidden rounded-lg border border-[#d8b991] bg-[#f3d9b6]">
               {videoRequested ? (
                 <>
                   {!videoReady && (
@@ -125,13 +126,19 @@ function MvpRoute() {
                 <button
                   type="button"
                   onClick={() => setVideoRequested(true)}
-                  className="group absolute inset-0 flex w-full items-center justify-center text-[#8a6e5d] transition-colors hover:bg-[#edcfaa] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[#c97864]"
+                  className="group absolute inset-0 flex w-full items-center justify-center text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[#c97864]"
                   aria-label="Phát video giới thiệu Phiêu Việt"
                 >
-                  <PlayCircle
-                    className="h-16 w-16 opacity-70 transition-transform group-hover:scale-110"
-                    aria-hidden="true"
+                  <img
+                    src={videoCover}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover"
+                    fetchPriority="high"
                   />
+                  <span className="absolute inset-0 bg-black/15 transition-colors group-hover:bg-black/30" />
+                  <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#7d1015]/85 shadow-lg ring-2 ring-white/80 transition-transform group-hover:scale-110">
+                    <PlayCircle className="h-10 w-10" aria-hidden="true" />
+                  </span>
                 </button>
               )}
             </div>
