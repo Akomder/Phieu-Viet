@@ -102,7 +102,7 @@ function MvpRoute() {
         {step === "intro" && (
           <div className="min-w-0 space-y-5 text-center animate-in fade-in zoom-in duration-500 sm:space-y-6">
             <h1 className="font-display text-2xl font-bold sm:text-3xl">
-              {t("Giới thiệu Việt Ký")}
+              {t("Giới thiệu Phiêu Việt")}
             </h1>
             <div className="relative aspect-[16/9] w-full min-w-0 overflow-hidden rounded-lg border border-[#d8b991] bg-[#f3d9b6]">
               {videoRequested ? (
