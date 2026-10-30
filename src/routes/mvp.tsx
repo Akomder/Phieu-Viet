@@ -2,13 +2,27 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { PlayCircle, Circle, Fish, Star, CheckCircle } from "lucide-react";
+import {
+  PlayCircle,
+  Circle,
+  Fish,
+  Star,
+  CheckCircle,
+  LoaderCircle,
+  ExternalLink,
+} from "lucide-react";
+
+const INTRO_VIDEO_ID = "1vAHZs5HxU5XFrSE-iWS_tfbRHCu8D-rq";
+const INTRO_VIDEO_URL = `https://drive.google.com/file/d/${INTRO_VIDEO_ID}/view`;
+const INTRO_VIDEO_EMBED_URL = `https://drive.google.com/file/d/${INTRO_VIDEO_ID}/preview`;
 
 export const Route = createFileRoute("/mvp")({
   component: MvpRoute,
 });
 
 function MvpRoute() {
+  const [videoRequested, setVideoRequested] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
   const [step, setStep] = useState<"intro" | "station1" | "search" | "survey" | "done">("intro");
   const [startTime, setStartTime] = useState<number | null>(null);
   const [wrongClicks, setWrongClicks] = useState(0);
@@ -85,8 +99,41 @@ function MvpRoute() {
         {step === "intro" && (
           <div className="space-y-6 text-center animate-in fade-in zoom-in duration-500">
             <h1 className="font-display text-3xl font-bold">Giới thiệu Việt Ký</h1>
-            <div className="aspect-video bg-muted flex items-center justify-center rounded-lg border">
-              <PlayCircle className="w-16 h-16 text-muted-foreground opacity-50" />
+            <div className="relative aspect-video overflow-hidden rounded-lg border border-[#d8b991] bg-[#f3d9b6]">
+              {videoRequested ? (
+                <>
+                  {!videoReady && (
+                    <div
+                      className="absolute inset-0 z-10 flex items-center justify-center bg-[#f3d9b6] text-[#765b4c]"
+                      aria-live="polite"
+                    >
+                      <LoaderCircle className="h-10 w-10 animate-spin" aria-hidden="true" />
+                      <span className="sr-only">Đang tải video</span>
+                    </div>
+                  )}
+                  <iframe
+                    title="Video giới thiệu Phiêu Việt"
+                    src={`${INTRO_VIDEO_EMBED_URL}?autoplay=1`}
+                    className="absolute inset-0 h-full w-full"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowFullScreen
+                    loading="eager"
+                    onLoad={() => setVideoReady(true)}
+                  />
+                </>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setVideoRequested(true)}
+                  className="group absolute inset-0 flex w-full items-center justify-center text-[#8a6e5d] transition-colors hover:bg-[#edcfaa] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[#c97864]"
+                  aria-label="Phát video giới thiệu Phiêu Việt"
+                >
+                  <PlayCircle
+                    className="h-16 w-16 opacity-70 transition-transform group-hover:scale-110"
+                    aria-hidden="true"
+                  />
+                </button>
+              )}
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Chào mừng bạn đến với Việt Ký! Đây là hành trình khám phá các di sản văn hóa qua những
